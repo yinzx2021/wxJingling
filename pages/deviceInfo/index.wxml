@@ -1,0 +1,51 @@
+<!--pages/deviceInfo/index.wxml-->
+<view class='coninfoZ'>
+<text class='deviceDang' text-align: center>设备档案</text>
+</view>
+<view class='line'></view>
+<view class='coninfo'>
+     <text class="head2">设备运行状态</text>
+</view>
+<view class='coninfo02'>  
+          <text class= "lightlife" >  灯管寿命：</text>
+          <view class='line'></view>
+          <text>灯管用时：</text> 
+</view>
+    <view class='coninfo2'>
+     <text>用户联系方式</text>
+    </view>
+    <view class='coninfo02'>
+     <i-row class= "lightrow" i-class="demo-row light">
+          <text class= "lightlife" >  地址：</text>
+          <view class='line'></view>
+          <text>电话：</text>
+     </i-row>
+    </view>
+    <view class='coninfo3'>
+     <text class="devicePass">设备密码</text>
+    </view>
+    <view class='coninfo02'>
+     <i-row class= "lightrow" i-class="demo-row light">
+          <text class= "lightlife" span="10"  offset="1" i-class="demo-col">  普通密码：</text>
+          <view class='line'></view>
+          <text span="10" i-class="demo-col light">信号密码：</text>
+          <view class='line'></view>
+          <text span="10" i-class="demo-col light">超级密码：</text>
+     </i-row>
+    </view>
+    <view class='coninfo4'>
+     <text>远程参数</text>
+    </view>
+    <view class='coninfo02'>
+          <text class= "lightlife" >  地址：</text>
+          <view class='line'></view>
+          <text >电话：</text>  
+    </view>
+    <view class='coninfo5'>
+     <text>安装信息</text>
+    </view>
+    <view class='coninfo02'>
+          <text class= "lightlife" > 人员：</text>
+          <view class='line'></view>
+          <text>日期：</text>
+    </view>

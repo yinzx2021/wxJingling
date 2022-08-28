@@ -1,0 +1,55 @@
+/* pages/checkParams/checkParams.wxss */
+.container {
+  background-color: darkgrey;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding:0 0;
+  text-align: left;
+} 
+.slider-style {
+  color: chocolate;
+  background-color: cornflowerblue;
+  margin: 10px;
+  margin-left: 20px;
+  margin-right: 16px;
+  width: 200px;
+  height: 100%;
+}
+.model_D{
+  color: rgb(235, 222, 168);
+}
+.model_Z{
+  color: rgb(91, 9, 107);
+  text-align: left;
+  left:0;
+}
+.model_P{
+  color: rgb(233, 226, 221);
+  text-align: left;
+  left:0;
+}
+.model_I{
+  color: rgb(250, 15, 54);
+  text-align: left;
+  left:0;
+}
+.line{
+  width: 100%;
+  height: 1rpx;
+  background-color:#e9382b;
+  margin-top:7px;
+  margin-bottom:7px;
+  }
+  .custom-button{
+    background-color:#f3eae9;
+
+  }
+

@@ -1,0 +1,28 @@
+<!--pages/login/login.wxml-->
+<view class="content">
+  <!--i-input class = "inputZH" bind:change='inputName' maxlength="15" title="账号" placeholder="请输入账号" />
+  <i-input class = "inputPass" bind:change='inputPassword' maxlength="15" title="密码"  placeholder="请输入密码" /-->
+    <van-cell-group>
+      <van-field
+        value="{{ username }}"
+        label="用户名"
+        placeholder="请输入用户名"
+        error
+        bind:change='inputName'
+      />
+      <van-field
+        value="{{ phone }}"
+        label="手机号"
+        placeholder="请输入手机号"
+        error-message="手机号格式错误"
+        border="{{ false }}"
+        bind:change='inputPassword'
+      />
+    </van-cell-group>    
+    <view class ="login">
+        <van-button   class="loginBtn" bindtap='login' type="primary">登录</van-button>   
+        <van-button   class="loginBtn"  bindtap='register' type="info">注册</van-button>
+</view>
+</view>
+
+ 

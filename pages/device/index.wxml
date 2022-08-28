@@ -1,0 +1,92 @@
+ <!--功能导航-->
+ <!--view class="category">
+    <navigator class="icon_wrap1" url="/pages/pie/index">
+        <image src="../../image/icon-qiandao.png"   mode="aspectFit" class="index_icon"></image>
+        <view class="category_item_text">
+          <text>统计信息</text>
+         </view>
+    </navigator>
+    <navigator class="icon_wrap1" url="/pages/checkParams/checkParams">
+        <image src="../../image/icon-qiandao.png"   mode="aspectFit" class="index_icon"></image>
+        <view class="category_item_text">
+          <text>检测参数</text>
+         </view>
+    </navigator>
+    <navigator class="icon_wrap1" url="/pages/detail/detail">
+        <image src="../../image/icon-qiandao.png"   mode="aspectFit" class="index_icon"></image>
+        <view class="category_item_text">
+          <text>设备参数</text>
+         </view>
+    </navigator>
+    <navigator class="icon_wrap1" url="/pages/deviceInfo/index">
+        <image src="../../image/icon-qiandao.png"   mode="aspectFit" class="index_icon"></image>
+        <view class="category_item_text">
+          <text>设备档案</text>
+         </view>
+    </navigator>
+</view>
+
+<!-- 显示所有的登记信息 --> 
+<!--view class="div">
+<!--text class="head">设备基本信息</text-->
+<!--view  wx:for="{{list}}"  wx:key="id">
+     <view class='line'></view>
+     <text class="head2">设备运行状态</text>
+     <i-row i-class="demo-row light">
+          <i-col span="10"  offset="1" i-class="demo-col">  灯管寿命：{{item.status_switch}}</i-col>
+          <i-col span="10" i-class="demo-col light">灯管用时：{{item.status_miandaizi}}</i-col>
+     </i-row>
+     <i-row i-class="demo-row light2">
+          <i-col span="10" offset="1" i-class="demo-col">  软件版本：{{item.status_qiya}}</i-col>
+          <i-col span="10" i-class="demo-col light">时间：{{item.status_reji}}</i-col>
+     </i-row>
+     <view class='line'></view>
+     <view class='line'></view>     
+</view>
+</view-->
+<!--view class="container">
+  <ec-canvas   class="barChart" id="mychart-dom-multi-bar" canvas-id="mychart-multi-bar" ec="{{ ecBar }}"></ec-canvas>
+  <ec-canvas    class="lineChart" id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ecLine }}"></ec-canvas>
+</view-->
+<!--view class="container1">
+     <canvas canvas-id="columnCanvas" class="canvas"></canvas>
+     <view style="text-align:center">24小时喷出次数</view>
+</view> 
+<view class="container2">
+     <canvas canvas-id="lineCanvas" class="canvas"></canvas>
+     <view style="text-align:center">24小时流速</view>
+</view-->
+ <!--index.wxml-->
+ <view class="container">
+  <ec-canvas   class="barChart" id="mychart-dom-multi-bar" canvas-id="mychart-multi-bar" ec="{{ ecBar }}"></ec-canvas>
+  <ec-canvas    class="lineChart" id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ecLine }}"></ec-canvas>
+</view>
+<view class="category">
+    <navigator class="icon_wrap1" url="/pages/pie/index">
+        <image src="../../image/icon-qiandao.png"   mode="aspectFit" class="index_icon"></image>
+        <view class="category_item_text">
+          <text>统计信息</text>
+         </view>
+    </navigator>
+    <navigator class="icon_wrap1" url="/pages/checkParams/checkParams">
+        <image src="../../image/icon-qiandao.png"   mode="aspectFit" class="index_icon"></image>
+        <view class="category_item_text">
+          <text>检测参数</text>
+         </view>
+    </navigator>
+    <navigator class="icon_wrap1" url="/pages/detail/detail">
+        <image src="../../image/icon-qiandao.png"   mode="aspectFit" class="index_icon"></image>
+        <view class="category_item_text">
+          <text>设备参数</text>
+         </view>
+    </navigator>
+    <navigator class="icon_wrap1" url="/pages/deviceInfo/index">
+        <image src="../../image/icon-qiandao.png"   mode="aspectFit" class="index_icon"></image>
+        <view class="category_item_text">
+          <text>设备档案</text>
+         </view>
+    </navigator>
+</view>
+
+
+   

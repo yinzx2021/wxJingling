@@ -1,0 +1,38 @@
+<view class="logo">
+      <!--image src="../../images/logo2.png"  mode="aspectFit"></image-->
+      <swiper indicator-dots="{{indicatorDots}}" 
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}" wx:key="imgUrls">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+  <!--功能导航-->
+  <view class="category">
+  <navigator class="category_item" wx:for="{{iconArray}}"  wx:key="iconArray" url="{{'../' + item.id+ '/'+item.id}}" bindtap="allDraw">   
+    <view class="category_item_wrap">
+      <view class="icon_wrap">
+        <image src="{{item.iconUrl}}" class="index_icon"></image>
+      </view>
+      <view class="category_item_text">
+        <text>{{item.iconText}}</text>
+      </view>
+    </view>
+  </navigator>
+</view>
+<!-- 公司与产品介绍 -->
+<!--view class="uploader">
+    <navigator url="../intro/intro" bindtap = "testi" open-type="navigate" class="uploader-text">
+      <text>公司与产品介绍</text>
+    </navigator>
+  </view--> 
+<!-- 登录管理设备 -->
+<view class="uploader">
+    <navigator url="../login/index" open-type="navigate" class="uploader-text">
+      <text>绑定设备</text>
+    </navigator>
+  </view>
+  <view class="topic"></view> 

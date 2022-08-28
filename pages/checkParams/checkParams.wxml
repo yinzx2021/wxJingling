@@ -1,0 +1,24 @@
+<!--pages/checkParams/checkParams.wxml-->
+<view class="container">
+    <view class='line'></view>
+  <text class="model_c">检测参数</text>
+  <text class="model_c">模型版本:20220512</text>
+  <view class='line'></view>
+  <text class="model_D">日光</text>
+  <van-slider value="{{ currentValue }}" active-color="#f4f98F" custom-class="slider-style " use-button-slot bind:drag="onDrag"> 
+    <view class="custom-button" slot="button">{{ currentValue }}</view>
+  </van-slider>
+    <text class="model_Z">紫外</text>
+  <van-slider value="{{ currentValueZ }}" class =  active-color="#840980" custom-class="slider-style " use-button-slot bind:drag="onDragZ"> 
+    <view class="custom-button" slot="button">{{ currentValueZ }}</view>
+  </van-slider>
+    <text class="model_P">偏振</text>
+  <van-slider value="{{ currentValueP }}" active-color="#D4E9FF" custom-class="slider-style "  use-button-slot bind:drag="onDragP">
+    <view class="custom-button" slot="button">{{ currentValueP }}</view>
+  </van-slider>
+    <text class="model_I">红外</text>
+  <van-slider value="{{ currentValueI }}" active-color="#f43030" custom-class="slider-style " use-button-slot bind:drag="onDragI">
+    <view class="custom-button" slot="button">{{ currentValueI }}</view>
+  </van-slider>
+  <view class='line'></view>
+</view>

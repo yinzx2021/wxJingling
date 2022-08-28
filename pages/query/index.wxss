@@ -1,0 +1,108 @@
+.book-list {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+  background-color: rgb(74, 93, 104);
+}
+.book-image {
+  flex: 0 0 10%;
+  box-sizing: border-box;
+  min-height: 242rpx;
+}
+.book-image image {
+  height: 242rpx;
+  width: 242rpx;
+}
+.vww {
+  background-color: #fff;
+  flex: 0 0 90%;
+  box-sizing: border-box;
+  height: 242rpx;
+  margin-left: 20rpx;
+  background-color: #eff0f1;
+}
+.vws{
+  box-sizing: border-box;
+  margin-left: 20rpx;
+  background-color: #2ca17e;
+}
+page{
+  height:100%;
+  background:#93949c;
+}
+.head{
+  font-size: 21px;
+  margin-left: 78px;
+  color:#1221ee;
+}
+.cs{
+  margin-left: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.line{
+width: 100%;
+height: 1rpx;
+background-color:#ffd995;
+margin-top:7px;
+margin-bottom:7px;
+}
+.demo-row{
+  margin-top: 5px;
+  background: #22bfee;
+  font-size:small;
+}
+/* 顶部返回的 */
+.inaver._30f2b4d {
+  box-sizing: border-box;
+  padding-top: 44rpx;
+  width: 100vw;
+  height: 160rpx;
+  display: flex;
+  position: fixed;
+  z-index: 5000;
+  top: 0;
+  left: 0;
+}
+ 
+.inaver .left._30f2b4d {
+  width: 100rpx;
+  height: 100rpx;
+  margin: 8rpx;
+}
+ 
+.inaver .left image.icon._30f2b4d {
+  width: 60rpx;
+  height: 60rpx;
+  padding: 10rpx;
+  margin: 10rpx;
+}
+ 
+.inaver .center._30f2b4d {
+  height: 100rpx;
+  line-height: 100rpx;
+  flex: 1;
+  margin: 8rpx;
+}
+ 
+.inaver .right._30f2b4d {
+  width: 240rpx;
+  height: 100rpx;
+  margin: 8rpx;
+}
+ 
+.protect-inaver._30f2b4d {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 160rpx;
+}
+.devicebtn{  
+ width:100%!important;
+ margin-left: 20%;
+ /*background-color:rgb(73, 165, 65)*/
+}

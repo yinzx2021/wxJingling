@@ -1,0 +1,68 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/index",
+    "pages/intro/intro",
+    "pages/query/index",
+    "pages/device/index",
+    "pages/more/more",
+    "pages/more/login",
+    "pages/more/about",
+    "pages/more/issues",
+    "pages/more/append",
+    "pages/news/news",
+    "pages/pie/index",
+    "pages/detail/detail",
+    "pages/deviceInfo/index",
+    "pages/checkParams/checkParams",
+    "pages/multiCharts/index",
+    "pages/company/company",
+    "pages/tuxiang/tuxiang",
+    "pages/automan/automan",
+    "pages/esystem/esystem",
+    "pages/contract/contract",
+    "pages/register/index"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#5CAF69",
+    "navigationBarTitleText": "异纤分检 小精灵",
+    "navigationBarTextStyle": "black",
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#f9f9f9"
+  },
+  "tabBar": {
+    "color": "#929292",
+    "backgroundColor": "#ffffff",
+    "selectedColor": "#69C3AA",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "image/shouye1.png",
+        "selectedIconPath": "image/shouye.png"
+      },
+      {
+        "pagePath": "pages/intro/intro",
+        "text": "活动",
+        "iconPath": "image/huodong1.png",
+        "selectedIconPath": "image/huodong.png"
+      },
+      {
+        "pagePath": "pages/login/index",
+        "text": "设备管理",
+        "iconPath": "image/car1.png",
+        "selectedIconPath": "image/car.png"
+      },
+      {
+        "pagePath": "pages/more/more",
+        "text": "我的",
+        "iconPath": "image/wode1.png",
+        "selectedIconPath": "image/wode.png"
+      }
+    ]
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json",
+  "style":"v2"
+}
