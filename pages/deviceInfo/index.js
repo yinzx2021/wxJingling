@@ -5,14 +5,36 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    ProModel: 'wer',
+    userName: 'ssdsad',
+    Address:'',
+    Phone:'',
+    CPass:'',
+    SPass:'',
+    VPass:'',
+    TCode:'',
+    Installer:'',
+    DateInstall:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.setData(
+      {
+        ProModel :  getApp().globalData.headers.设备型号,   
+        userName:   getApp().globalData.headers.公司名称,
+        Address:    getApp().globalData.headers.地址,
+        Phone:      getApp().globalData.headers.联系方式,
+        CPass:      getApp().globalData.passdevice.普通密码,
+        SPass:      getApp().globalData.passdevice.信号密码,
+        VPass:      getApp().globalData.passdevice.超级密码,
+        TCode:      getApp().globalData.headers.远控码,
+        Installer:  getApp().globalData.headers.安装人员,
+        DateInstall:getApp().globalData.headers.安装时间
+      }
+    )
   },
 
   /**

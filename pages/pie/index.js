@@ -1,8 +1,21 @@
 import * as echarts from '../../ec-canvas/echarts';
-
-
-
 const app = getApp();
+
+function formatStringLen(strVal, len, padChar){
+  padChar = padChar || "*";
+  if (!strVal) {
+    return padChar.repeat(len);
+  } else {
+    const strLen = strVal.length;
+    if (strLen > len){
+      return strVal.substring(0, len);
+    } else if (strLen < len){
+      return strVal.padEnd(len, padChar);
+    }else{
+      return strVal;
+    }
+  }
+}
 
 function initChart(canvas, width, height, dpr) {
   const chart = echarts.init(canvas, null, {
@@ -11,11 +24,8 @@ function initChart(canvas, width, height, dpr) {
     devicePixelRatio: dpr // new
   });
   canvas.setChart(chart);
-
   var option = {
-    backgroundColor: "#aaaaaa",
-   
-    
+    backgroundColor: "#aaaaaa",  
     series: [{
       label: {
         normal: {
@@ -28,7 +38,7 @@ function initChart(canvas, width, height, dpr) {
       type: 'pie',
       center: ['50%', '60%'],
       radius: ['10%', '50%'],
-      data: [{
+      data: getApp().globalData.record.dataClass,/*[{
         value: 55,
         name: '彩色'
       }, {
@@ -43,7 +53,7 @@ function initChart(canvas, width, height, dpr) {
       }, {
         value: 38,
         name: '灰丝'
-      }]
+      }]*/
     }],
     legend: {
       orient: 'horizontal',
@@ -51,13 +61,18 @@ function initChart(canvas, width, height, dpr) {
       icon: "circle",
       x:'center',
       y:'top',
-      padding:30,
+      padding:10,
       top:0,
-      backgroundColor: '#888888',
+      backgroundColor: '#cccccc',
       borderColor: '#0000ff',
       borderWidth: '0',
-    
-      formatter: function(name) {
+      formatter: function(name){    
+        let data= getApp().globalData.record.dataClass; 
+        const value = data.find(v=>v.name===name).value;
+        const result = name + "："+ value+"%";          
+        return formatStringLen(result,12,' ');        
+      },
+      /*formatter: function(name) {
           if(name === '灰丝') {
               return name + "："+"350(数值)";
           } else if(name === '地膜') {
@@ -69,7 +84,7 @@ function initChart(canvas, width, height, dpr) {
           } else if(name === '黑色') {
             return name + "："+"350(数值)";
           } 
-      },
+      },*/
     },
     title: [{
       text: '33',

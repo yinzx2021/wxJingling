@@ -1,23 +1,5 @@
 import * as echarts from '../../ec-canvas/echarts';
 var WxAutoImage = require('../../js/wxAutoImageCal.js');
-var columnChart = null;
-var chartData = {
-  main: {
-      title: 'day',
-      data: [1500, 2000, 2500, 1700,1500, 2000, 2500, 1700,1500, 2000, 2500, 1700,1500, 2000, 2500, 1700,1500, 2000, 2500, 1700,1500, 2000, 2500, 1700],
-      categories: ['0', '1', '2', '3','4', '5', '6', '7','8','9', '10', '11', '12','13', '14', '15', '16','17', '18', '19', '20','21', '22', '23']
-  },
-  Uv: {
-    title: 'uv',
-    data: [150, 200, 250, 170,150, 200,250,170,150, 200, 250, 170,150, 200, 250, 170,150, 200,250, 170,150, 200, 250, 170],
-    categories: ['0', '1', '2', '3','4', '5', '6', '7','8','9', '10', '11', '12','13', '14', '15', '16','17', '18', '19', '20','21', '22', '23']
-},
-  Vv: {
-    title: 'vv',
-    data: [15.0, 20.0, 25.0, 17.0,15.0, 20.0,25.0,17.0,15.0, 20.0, 25.0, 17.0,15.0, 20.0, 25.0, 17.0,15.0, 20.0,25.0, 17.0,15.0, 20.0, 25.0, 17.0],
-    categories: ['0', '1', '2', '3','4', '5', '6', '7','8','9', '10', '11', '12','13', '14', '15', '16','17', '18', '19', '20','21', '22', '23']
-}
-}
 
 Page({
   onShareAppMessage: function (res) {
@@ -98,7 +80,8 @@ function getBarOption() {
       data: ['日光', '紫外偏振', '红外'],
       x:'center',
       y:'bottom',
-      orient: 'horizontal'
+      orient: 'horizontal',
+      padding:0
     },
     grid: {
       left: 20,
@@ -140,11 +123,11 @@ function getBarOption() {
         type: 'bar',
         label: {
           normal: {
-            show: true,
+            show: false,
             position: 'inside'
           }
         },
-        data: [300, 270, 340, 344, 300, 320, 310]
+        data: getApp().globalData.record.当日日光喷出次数
       },
       {
         name: '紫外偏振',
@@ -152,10 +135,10 @@ function getBarOption() {
         stack: '总量',
         label: {
           normal: {
-            show: true
+            show: false
           }
         },
-        data: [120, 102, 141, 174, 190, 250, 220]
+        data: getApp().globalData.record.紫外喷出次数
       },
       {
         name: '红外',
@@ -163,11 +146,11 @@ function getBarOption() {
         stack: '总量',
         label: {
           normal: {
-            show: true,
+            show: false,
             position: 'left'
           }
         },
-        data: [20, 32, 21, 34, 90, 130, 110]
+        data: getApp().globalData.record.红外喷出次数保留
       }
     ]
   };
@@ -242,6 +225,7 @@ function getLineOption() {
     yAxis: {
       x: 'center',
       type: 'value',
+      max:20,
       splitLine: {
         lineStyle: {
           type: 'dashed'
@@ -255,11 +239,11 @@ function getLineOption() {
       smooth: true,
       label: {
         normal: {
-          show: true,
+          show: false,
           position: 'left'
         }
       },
-      data: [18, 36, 65, 30, 78, 40, 33,18, 36, 65, 30, 78, 40, 33,18, 36, 65, 30, 78, 40, 33,18, 36, 65]
+      data: getApp().globalData.record.当日24小时流速
     }, ]
   };
 }

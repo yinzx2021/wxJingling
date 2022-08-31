@@ -1,7 +1,8 @@
 var app = getApp();
 Page({
     data: {//detail.sys.hostname
-        detail: {sys:{hostname:"JWF0016F",uptime:"220188",
+        detail: getApp().globalData.detail,
+        /*{sys:{hostname:"JWF0016F",uptime:"220188",
         cpus:{percent:"8部",list:{
           日前1:{index:"1",percent:"70",free:"80",total:"32",trans:"fz"},
           日前2:{percent:"12",free:"22",total:"45",trans:"fz"},
@@ -15,12 +16,12 @@ Page({
         mem:{percent:"0",free:"0"},
       },
         
-      }
+      }*/
     },
     onLoad: function(opts){
-        /*console.log(app.globalData.plist[opts.index]);
-        this.setData({
-            detail: app.globalData.plist[opts.index]
-        });*/
+      console.log(getApp().globalData.detail);
+      this.setData({
+          detail: getApp().globalData.detail
+      });
     }
 });

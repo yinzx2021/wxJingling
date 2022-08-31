@@ -31,8 +31,8 @@
   </view--> 
 <!-- 登录管理设备 -->
 <view class="uploader">
-    <navigator url="../login/index" open-type="navigate" class="uploader-text">
-      <text>绑定设备</text>
+    <navigator url="../multiCharts/index" open-type="navigate" class="uploader-text">
+      <text>体验设备</text>
     </navigator>
   </view>
   <view class="topic"></view> 

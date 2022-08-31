@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    ModalNameDevice:'20220512',
     currentValue : 50,
     currentValueZ : 50,
     currentValueP : 50,
@@ -36,7 +37,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.setData(
+      {
+        ModalNameDevice:getApp().globalData.settings.ModelName,
+        currentValue :  getApp().globalData.settings.色彩灵敏度,
+        currentValueZ : getApp().globalData.settings.荧光灵敏度,
+        currentValueP : getApp().globalData.settings.偏振灵敏度,
+        currentValueI : getApp().globalData.settings.红外灵敏度
+      }
+    )
   },
 
   /**

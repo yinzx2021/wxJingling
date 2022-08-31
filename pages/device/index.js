@@ -414,7 +414,7 @@ function getBarOption() {
             color:'#993333'
           }
         },
-        data: [300, 270, 340, 344, 300, 320, 310,300, 270, 340, 344, 300, 320, 310,300, 270, 340, 344, 300, 320, 310, 300, 320, 310]
+        data: getApp().globalData.record.当日日光喷出次数
       },
       {
         name: '紫外偏振',
@@ -430,7 +430,7 @@ function getBarOption() {
             color:'#442299'
           }
         },
-        data: [120, 102, 141, 174, 190, 250, 220,120, 102, 141, 174, 190, 250, 220,120, 102, 141, 174, 190, 250, 220, 250, 220,120]
+        data: getApp().globalData.record.紫外喷出次数
       },
       {
         name: '红外',
@@ -487,6 +487,7 @@ function getLineOption() {
     yAxis: {
       x: 'center',
       type: 'value',
+      max:18,
       splitLine: {
         lineStyle: {
           type: 'dashed'
@@ -504,7 +505,7 @@ function getLineOption() {
           position: 'left'
         }
       },
-      data: [12.5, 12.3, 11.8, 11.5, 12,12.4, 12.5, 12.3, 11.8, 11.5, 12,12.4, 12.5, 12.3, 11.8, 11.5, 12,12.4, 12.5, 12.3, 11.8, 11.5, 12,12.4]
+      data: getApp().globalData.record.当日24小时流速
     }, ]
   };
 }

@@ -1,11 +1,11 @@
-<scroll-view scroll-y="true" style="height:600px" class="m-detail container">
+<scroll-view scroll-y="true" style="height:600px" class="m-detail container" >
     <view class="m-block m-name">
         <label class="m-name-left">机器名称: <text class="m-green">{{detail.sys.hostname}}</text></label>
         <label class="m-name-rigth"><text class="m-green">{{detail.sys.uptime}}</text></label>
     </view>
     <view class="m-block m-cpu">
         <view class="m-cpu-percent">相机参数: <text class="m-green">{{detail.sys.cpus.percent}}</text></view>
-        <view wx:for="{{detail.sys.cpus.list}}" class="m-cpu-list">
+        <view wx:for="{{detail.sys.cpus.list}}" wx:key="index" class="m-cpu-list">
             <view class="m-cpu-single-20 m-green">{{index}}</view>
             <view class="m-cpu-single-20 m-green">{{item.percent}}</view>
             <view class="m-cpu-single-30 m-green">{{item.free}}</view>
@@ -13,28 +13,34 @@
             <view class="m-cpu-single-30 m-green">{{item.trans}}</view>
         </view>
     </view>
-    <view class="m-block m-mem">
+    <!--view class="m-block m-mem">
         <view class="m-mem-percent">边界</view>
         <view class="m-mem-body">
             <view class="m-mem-single"><text class="m-green">{{detail.sys.mem.percent}}</text></view>
             <view class="m-mem-single"><text class="m-green">{{detail.sys.mem.free}}</text></view>
             <view class="m-mem-single"><text class="m-green">{{detail.sys.mem.total}}</text></view>
         </view>
-    </view>
+    </view-->
     <view class="m-block m-load">
-        <label class="m-load-single">系统版本: <text class="m-green">{{detail.sys.load[0]}}, {{detail.sys.load[1]}}, {{detail.sys.load[2]}}</text></label>
+        <label class="m-load-single">棉花方向: <text class="m-green">{{detail.sys.load[0]}}, {{detail.sys.load[1]}}, {{detail.sys.load[2]}}</text></label>
     </view>
     <view class="m-block m-plist">
         <view class="m-plist-title">喷阀参数</view>
         <view class="m-plist-head">
-            <view class="m-plist-ceil">ID</view>
-            <view class="m-plist-ceil">DELAY</view>
-            <view class="m-plist-ceil">CONTINUE</view>
+            <view class="m-plist-ceil">检测位</view>
+            <view class="m-plist-ceil">延迟时间</view>
+            <view class="m-plist-ceil">持续时间</view>
+            <view class="m-plist-ceil">喷阀距离</view>
+            <view class="m-plist-ceil">联动</view>
+            <view class="m-plist-ceil">优化因子</view>
         </view>
-        <view wx:for="{{detail.procs}}" class="m-plist-body">
+        <view wx:for="{{detail.procs}}" wx:key="pid" class="m-plist-body">
             <view class="m-plist-ceil m-green">{{item.pid}}</view>
             <view class="m-plist-ceil m-green">{{item.cpu}}</view>
             <view class="m-plist-ceil m-green">{{item.mem}}</view>
+            <view class="m-plist-ceil m-green">{{item.pid2}}</view>
+            <view class="m-plist-ceil m-green">{{item.cpu2}}</view>
+            <view class="m-plist-ceil m-green">{{item.mem2}}</view>
         </view>
     </view>
 </scroll-view>

@@ -4,21 +4,21 @@
 </view>
 <view class='line'></view>
 <view class='coninfo'>
-     <text class="head2">设备运行状态</text>
+     <text class="head2">用户信息</text>
 </view>
 <view class='coninfo02'>  
-          <text class= "lightlife" >  灯管寿命：</text>
+          <text class= "lightlife" >  产品型号：{{ProModel}}</text>
           <view class='line'></view>
-          <text>灯管用时：</text> 
+          <text>用户名称：{{userName}}</text> 
 </view>
     <view class='coninfo2'>
      <text>用户联系方式</text>
     </view>
     <view class='coninfo02'>
      <i-row class= "lightrow" i-class="demo-row light">
-          <text class= "lightlife" >  地址：</text>
+          <text class= "lightlife" >  地址：{{Address}}</text>
           <view class='line'></view>
-          <text>电话：</text>
+          <text>电话：{{Phone}}</text>
      </i-row>
     </view>
     <view class='coninfo3'>
@@ -26,26 +26,26 @@
     </view>
     <view class='coninfo02'>
      <i-row class= "lightrow" i-class="demo-row light">
-          <text class= "lightlife" span="10"  offset="1" i-class="demo-col">  普通密码：</text>
+          <text class= "lightlife" span="10"  offset="1" i-class="demo-col">  普通密码：{{CPass}}</text>
           <view class='line'></view>
-          <text span="10" i-class="demo-col light">信号密码：</text>
+          <text span="10" i-class="demo-col light">信号密码：{{SPass}}</text>
           <view class='line'></view>
-          <text span="10" i-class="demo-col light">超级密码：</text>
+          <text span="10" i-class="demo-col light">超级密码：{{VPass}}</text>
      </i-row>
     </view>
     <view class='coninfo4'>
      <text>远程参数</text>
     </view>
     <view class='coninfo02'>
-          <text class= "lightlife" >  地址：</text>
+          <text class= "lightlife" >  Code1：{{TCode}}</text>
           <view class='line'></view>
-          <text >电话：</text>  
+          <text >Code2：</text>  
     </view>
     <view class='coninfo5'>
      <text>安装信息</text>
     </view>
     <view class='coninfo02'>
-          <text class= "lightlife" > 人员：</text>
+          <text class= "lightlife" > 人员：{{Installer}}</text>
           <view class='line'></view>
-          <text>日期：</text>
+          <text>日期：{{DateInstall}}</text>
     </view>
