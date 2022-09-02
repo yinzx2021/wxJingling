@@ -21,11 +21,12 @@
     "pages/automan/automan",
     "pages/esystem/esystem",
     "pages/contract/contract",
-    "pages/register/index"
+    "pages/register/index",
+    "pages/history/history"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#5CAF69",
-    "navigationBarTitleText": "异纤分检 小精灵",
+    "navigationBarBackgroundColor": "#40a3ee",
+    "navigationBarTitleText": "精灵系列异纤机",
     "navigationBarTextStyle": "black",
     "backgroundTextStyle": "dark",
     "backgroundColor": "#f9f9f9"
@@ -64,5 +65,5 @@
   },
   "debug": true,
   "sitemapLocation": "sitemap.json",
-  "style":"v2"
+  "style": "v2"
 }

@@ -2,7 +2,7 @@
 <view class="container">
   <view class="header">
     <view class="black-cover"></view>
-    <image class="logo" src="/images/more/logo.png"></image>
+    <!--image class="logo" src="/images/more/lanshan.png"></image-->
     <image class="title" src="/images/more/title.png"></image>
   </view>
   <view class="content">
@@ -21,11 +21,13 @@
         <text class="desc-title">简介</text>
         <view class="desc-list">
           <text class="desc-list-item">官网：http://xjs.jwgf.com/</text>
-          <text class="desc-list-item">Github：https://gitee.com/yinzhongxi001/pic_sort.git</text>
+          <text class="desc-list-item">Github：https://github.com/yinzx2021/wxJingling</text>
         </view>
-        <text class="desc-content">北京经纬纺机新技术有限公司，（以下简称北京新技术公司）是世界 500 强中国机械工业集团有限公司（SINOMACH 国机集团）的骨干企业——中国恒天集团有限公司（CHTC 恒天集团）的核心成员单位——经纬纺机机械股份有限公司的全资子公司。于2000年在北京经济技术开发区注册成立，注册资本15232万元，占地面积50亩。主要从事电气控制、工业检测、机器视觉、筒纱智能打包系统、纺纱智能工厂管控系统等高端产品研发。</text>
-        <text class="desc-content">welcome</text>
-        <text class="desc-content">welcome</text>
+        <text class="desc-content">   北京经纬纺机新技术有限公司，（以下简称北京新技术公司）是世界 500 强中国机械工业集团有限公司（SINOMACH 国机集团）的骨干企业——中国恒天集团有限公司（CHTC 恒天集团）的核心成员单位——经纬纺机机械股份有限公司的全资子公司。于2000年在北京经济技术开发区注册成立，注册资本15232万元，占地面积50亩。主要从事电气控制、工业检测、机器视觉、筒纱智能打包系统、纺纱智能工厂管控系统等高端产品研发。
+        ...（2009年）被北京市科学技术委员会批准为“高新技术企业”，2001年公司被中华人民共和国对外贸易经济合作部批准为“中华人民共和国进出口企业”，获得自营和代理各类商品及技术进出口权，2007年9月被国家发改委、国家科技部、国家财政部、国家海关总署、国家税务总局五部委认定为国家企业技术中心，拥有院士专家工作站、博士后科研工作站和数十位中高级电气工程师，是一支实力雄厚的研发队伍，满足了电气开发和棉纺工艺研究的多样需求。并通过了GB/T19001-2000idt ISO9001:2000质量体系认证。
+        ...公司长期以来致力于合作项目的技术引进，与各大世界型的跨国公司展开了多方位、多形式的合作，已经先后在细纱机紧密纺、地毯丝、材料和纺机电气控制等领域的与来自德国，美国，意大利等多家纺机公司达成了技术引进与合作。其中在长丝自动化领域负责全世界范围内运用奥特发的长丝自动化技术的开发，设备研制、生产、销售。致力于发展全球棉纺工厂智能化与自动化。
+        ...在市场经济社会的不断发展中，公司本着诚信、创新、卓越的理念，集中主要力量并努力使其成为更加规范化管理、研发与生产并进的高新技术公司，为推动集团公司和纺机产品智能化发展做出自己的贡献。
+        </text>
     </view>
     <view class="log-list" wx:else>
       <view class="describe">

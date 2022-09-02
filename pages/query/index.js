@@ -13,6 +13,7 @@ Page({
    */
   data: {
    list:[],
+   deviceStatus:1
   },
   
   options: { styleIsolation: 'shared' },

@@ -1,0 +1,30 @@
+<!--pages/history/history.wxml-->
+<text>发展历程</text>
+<!--van-cell-group inset custom-class="res-group" border="{{false}}">
+        <block wx:for="{{resCard}}" wx:key="index">
+          <van-cell title="{{item.label}}" value="{{item.value}}"
+                    custom-class="cell-box" title-class="c-title" value-class="c-value" label-class="c-label"
+                    border="{{ false }}" use-label-solt>
+          </van-cell>
+          <view wx:if="{{item.tips}}" class="c-label">{{item.tips}}</view>
+        </block>
+</van-cell-group-->
+<van-cell-group  inset custom-class="res-group" border="{{false}}">
+        <block  wx:for="{{resCard}}" wx:for-index="key" wx:key="key">
+          <van-cell title-width="50"  title="{{resCard[key].label}}" value="{{resCard[key].value}}"
+                    custom-class="cell-box" title-class="c-title" value-class="c-value" label-class="c-label"
+                    border="{{ false }}" use-label-solt>
+          </van-cell>
+          <!--view wx:if="{{resCard[key].tips}}" class="c-label">{{resCard[key].tips}}</view-->
+        </block>
+</van-cell-group>
+<text>公司荣誉</text>
+<van-cell-group inset custom-class="res-group" border="{{false}}">
+        <block wx:for="{{resCard2}}" wx:key="index">
+          <van-cell title-width="60"  title="{{item.label}}" value="{{item.value}}"
+                    custom-class="cell-box" title-class="c-title" value-class="c-value" label-class="c-label"
+                    border="{{ false }}" use-label-solt>
+          </van-cell>
+          <view wx:if="{{item.tips}}" class="c-label">{{item.tips}}</view>
+        </block>
+</van-cell-group>

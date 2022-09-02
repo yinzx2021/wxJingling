@@ -1,1 +1,4 @@
 /* pages/intro/intro.wxss */
+.imglogo{
+  height:100%;
+}

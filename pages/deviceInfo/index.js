@@ -5,8 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    ProModel: 'wer',
-    userName: 'ssdsad',
+    ProModel: '',
+    userName: '',
     Address:'',
     Phone:'',
     CPass:'',
@@ -21,6 +21,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    console.log(getApp().globalData.listNo)
+    if (getApp().globalData.listNo > 0){
     this.setData(
       {
         ProModel :  getApp().globalData.headers.设备型号,   
@@ -35,6 +37,7 @@ Page({
         DateInstall:getApp().globalData.headers.安装时间
       }
     )
+    }
   },
 
   /**

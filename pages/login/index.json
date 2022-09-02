@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "异纤分检 小精灵",
+  "navigationBarTitleText": "精灵系列异纤机",
   "usingComponents": {
     "van-field": "../../dist/field/index",
     "van-button": "../../dist/button/index"

@@ -16,7 +16,7 @@
       </view>
     </view>
   </block>
-  <text class="issues-remind">您的反馈将会以Issues的形式提交至经纬新技术的Github，您可通过访问https://gitee.com/yinzhongxi001/pic_sort.git 来了解反馈动态；此外，您也可以直接在该网站进行详细反馈。另注：频繁恶意反馈的用户将取消其反馈资格。</text>
+  <text class="issues-remind">您的反馈将会以Mail的形式提交至经纬新技术的电子邮箱来了解反馈动态；此外，您也可以直接联系公司进行详细反馈。另注：频繁恶意反馈的用户将取消其反馈资格。</text>
   <view class="submit-btn" bindtap="submit">
     <text>提交反馈</text>
   </view>

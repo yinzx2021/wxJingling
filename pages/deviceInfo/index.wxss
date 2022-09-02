@@ -10,27 +10,27 @@ i-col{
   flex-direction: column;
 }
 .coninfoZ{
-  background-color: rgb(89, 207, 123);
+  background-color: rgb(31, 97, 197);
   text-align: center;
 }
 .coninfo{
-  background-color: rgb(255, 136, 0);
+  background-color:rgb(152, 206, 241);
   text-align: center;
 }
 .coninfo2{
-  background-color: rgb(255, 136, 0);
+  background-color:  rgb(152, 206, 241);
   text-align: center;
 }
 .coninfo3{
-  background-color: rgb(255, 136, 0);
+  background-color: rgb(152, 206, 241);
   text-align: center;
 }
 .coninfo4{
-  background-color: rgb(255, 136, 0);
+  background-color:rgb(152, 206, 241);
   text-align: center;
 }
 .coninfo5{
-  background-color: rgb(255, 136, 0);
+  background-color:rgb(152, 206, 241);
   text-align: center;
 }
 .viewpass{
@@ -41,7 +41,7 @@ i-col{
 .line{
   width: 100%;
   height: 1rpx;
-  background-color:#ffd995;
+  background-color:#0093ff;
   margin-top:7px;
   margin-bottom:7px;
   }

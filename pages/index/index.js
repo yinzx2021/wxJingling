@@ -8,7 +8,7 @@ Page({
         '../../images/logo1.png',
         '../../images/logo3.png',
         '../../images/logo4.png',
-        '../../images/logo1.png'
+        '../../images/logo2.png'
     ],
     iconArray: [
       {
@@ -32,9 +32,9 @@ Page({
           "iconText": 'E系统'
       },
       {
-          id:'news',
+          id:'history',
           "iconUrl": '../../image/icon-muma.png',
-          "iconText": '新闻资讯'
+          "iconText": '历程与荣誉'
       },
       {
           id:'contract',

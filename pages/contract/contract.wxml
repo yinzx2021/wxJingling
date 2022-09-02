@@ -1,2 +1,87 @@
 <!--pages/contract/contract.wxml-->
-<text>pages/contract/contract.wxml</text>
+<text>联系我们</text>
+<view class='line'></view>
+<van-cell-group>
+  <van-field
+    value="{{ username }}"
+    label="地址"
+    placeholder="请输入用户名"
+    bind:click-icon="onClickIcon"
+    disabled
+  />  
+  <van-field
+    value="{{ password }}"
+    type="password"
+    label="传真"
+    placeholder="（86）10-67875552"
+    disabled
+    border="{{ false }}"
+  />
+</van-cell-group>
+<text>驻外销售技术服务中心</text>
+<van-cell-group>
+  <van-field
+    label="山东"
+    placeholder="18910648321"
+    bind:click-icon="onClickIcon"
+    disabled
+  />
+  <van-field
+    value="{{ password }}"
+    type="password"
+    label="河北/东北"
+    placeholder="15810367035"
+    disabled
+    border="{{ false }}"
+  />
+
+  <van-field
+    value="{{ password }}"
+    type="password"
+    label="河南"
+    placeholder="18600011537"
+    disabled
+    border="{{ false }}"
+  />
+  <van-field
+    label="皖/两湖/云陕贵川"
+    placeholder="18811049098"
+    bind:click-icon="onClickIcon"
+    disabled
+  />
+
+  <van-field
+    value="{{ password }}"
+    type="password"
+    label="江苏/浙江"
+    placeholder="13581656307"
+    disabled
+    border="{{ false }}"
+  />
+
+  <van-field
+    value="{{ password }}"
+    type="password"
+    label="福建/两广"
+    placeholder="15210668665"
+    disabled
+    border="{{ false }}"
+  />
+  <van-field
+    value="{{ password }}"
+    type="password"
+    label="新疆/甘宁"
+    placeholder="15163238868"
+    disabled
+    autosize
+    border="{{ false }}"
+  />
+  <van-field
+    value="{{ password }}"
+    type="password"
+    label="销售总监"
+    placeholder="18001351033"
+    disabled
+    border="{{ false }}"
+  />
+</van-cell-group>

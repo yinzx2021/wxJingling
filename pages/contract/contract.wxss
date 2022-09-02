@@ -1,1 +1,8 @@
 /* pages/contract/contract.wxss */
+.line{
+  width: 30%;
+  height: 20rpx;
+  background-color:#2f45c4;
+  margin-top:7px;
+  margin-bottom:7px;
+  }

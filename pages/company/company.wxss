@@ -29,7 +29,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: #888;
+  background: #ffffff;
   opacity: .18;
 }
 .logo{
@@ -123,6 +123,7 @@
   font-size: 10pt;
 }
 .desc-content{
+  text-indent:30px;
   padding-bottom: 15rpx;
 }
 .footer{

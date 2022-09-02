@@ -1,11 +1,11 @@
 
 <!-- 显示所有的登记信息 -->
 <view class="div">
-<text class="head">登记用户的信息</text>
+<text class="head">设备清单</text>
 <view  wx:for="{{list}}"  wx:key="id">
 <view class="book-list">
       <view class="book-image">
-           <image src="../../images/0015.png"  mode="aspectFit"></image>
+           <image class="demoImg" src="../../images/0015.png"  mode="aspectFit"></image>
         </view>
         <view class="vww">
           <view class="vw">
@@ -20,12 +20,15 @@
         <view class="vw">
               <label for="" class="font14" class="cs">产线类型</label> <label for="" class="font14" class="cs">{{item.proline}}</label>
           </view>    
-          <view class="vws">
+          <view class="vws" wx:if="{{item.deviceStatus}}">
               <label for="" class="font14" class="cs">设备状态</label> <label for="" class="font14" class="cs">正常</label>
+          </view>  
+          <view class="vws2" wx:else>
+              <label for="" class="font14" class="cs">设备状态</label> <label for="" class="font14" class="cs">离线</label>
           </view>  
     </view>
   </view>
-    <i-button class="devicebtn" bindtap='login'  id="{{item.DeviceNo}}" type="primary">查看设备状态</i-button>
+    <button class="devicebtn" bindtap='login'  id="{{item.DeviceNo}}" type="primary">查看设备状态</button>
     <view class='line'></view>
 
 </view>

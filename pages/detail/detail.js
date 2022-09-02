@@ -2,24 +2,33 @@ var app = getApp();
 Page({
     data: {//detail.sys.hostname
         detail: getApp().globalData.detail,
-        /*{sys:{hostname:"JWF0016F",uptime:"220188",
-        cpus:{percent:"8部",list:{
-          日前1:{index:"1",percent:"70",free:"80",total:"32",trans:"fz"},
-          日前2:{percent:"12",free:"22",total:"45",trans:"fz"},
-          日后1:{percent:"70",free:"80",total:"32",trans:"nfz"},
-          日后2:{percent:"12",free:"22",total:"45",trans:"nfz"},
-          紫前1:{percent:"70",free:"80",total:"32",trans:"fz"},
-          紫前2:{percent:"12",free:"22",total:"45",trans:"fz"},
-          紫后1:{percent:"70",free:"80",total:"32",trans:"nfz"},
-          紫后2:{percent:"12",free:"22",total:"45",trans:"nfz"}
-        }},
-        mem:{percent:"0",free:"0"},
-      },
-        
-      }*/
+        detail: {
+          sys:{
+            load:['','',''],      
+            hostname:"",uptime:"",
+            cpus:{percent:"",list:{
+              日前1:{index:0,percent:0,free:0,total:0,trans:0},
+              日前2:{percent:0,free:0,total:0,trans:0},
+              日后1:{percent:0,free:0,total:0,trans:0},
+              日后2:{percent:0,free:0,total:0,trans:0},
+              紫前1:{percent:0,free:0,total:0,trans:0},
+              紫前2:{percent:0,free:0,total:0,trans:0},
+              紫后1:{percent:0,free:0,total:0,trans:0},
+              紫后2:{percent:0,free:0,total:0,trans:0}
+            }},
+            mem:{percent:0,free:0},        
+          },
+        procs:{
+          日前:{pid:"日前",cpu:0,mem:0,pid2:0,cpu2:0,mem2:0},
+          日后:{pid:"日后",cpu:0,mem:0,pid2:0,cpu2:0,mem2:0},
+          紫前:{pid:"紫前",cpu:0,mem:0,pid2:0,cpu2:0,mem2:0},
+          紫后:{pid:"紫后",cpu:0,mem:0,pid2:0,cpu2:0,mem2:0},
+        },        
+      } 
     },
     onLoad: function(opts){
       console.log(getApp().globalData.detail);
+      if (getApp().globalData.listNo > 0)
       this.setData({
           detail: getApp().globalData.detail
       });

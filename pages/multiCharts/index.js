@@ -2,6 +2,20 @@ import * as echarts from '../../ec-canvas/echarts';
 var WxAutoImage = require('../../js/wxAutoImageCal.js');
 
 Page({
+  sendEmail(){
+    wx.cloud.callFunction(
+      {name:"sendEmail",
+      data:{
+        concent_info:getApp().globalData.mailConent
+      },
+      success(res){
+        console.log("ok",res)
+      },
+      fail(res){
+        console.log("false",res)
+      }
+    })
+  },
   onShareAppMessage: function (res) {
     return {
       title: 'ECharts 可以在微信小程序中使用啦！',

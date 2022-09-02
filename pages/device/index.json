@@ -3,6 +3,8 @@
     "i-panel": "../../dist/panel/index",
     "i-row": "../../dist/row/index",
     "i-col": "../../dist/col/index",
-    "ec-canvas": "../../ec-canvas/ec-canvas"
+    "ec-canvas": "../../ec-canvas/ec-canvas",
+    "van-calendar": "/dist/calendar/index",
+    "van-cell": "../../dist/cell/index"
   }
 }

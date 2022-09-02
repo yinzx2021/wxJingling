@@ -37,6 +37,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    if (getApp().globalData.listNo > 0)
     this.setData(
       {
         ModalNameDevice:getApp().globalData.settings.ModelName,

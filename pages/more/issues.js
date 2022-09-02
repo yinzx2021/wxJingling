@@ -29,21 +29,6 @@ Page({
         });
       }
     });
-    wx.request({
-      url: 'https://we.1cqu.pt/api/upload/get_upload_token.php',
-      method: 'POST',
-      data: app.key({
-        openid: app._user.openid
-      }),
-      success: function(res){
-        if(res.data.status === 200){
-          _this.setData({
-            upload: true,
-            qiniu: res.data.data.token
-          });
-        }
-      }
-    })
   },
   listenerTitle: function(e){
     this.setData({
@@ -160,34 +145,26 @@ Page({
             content += imgs;
           }
           app.showLoadToast();
-          wx.request({
-            url: app._server + '/api/feedback.php',
-            data: app.key({
-              openid: app._user.openid,
-              title: title,
-              body: content
-            }),
-            method: 'POST',
-            success: function(res){
-              if(res.data.status === 200){
-                var text = '反馈成功，您可通过访问 ' + res.data.data.html_url + ' 了解反馈动态';
-                wx.showModal({
-                  title: '反馈成功',
-                  content: text,
-                  showCancel: false,
-                  success: function(res) {
-                    wx.navigateBack();
-                  }
-                });
-              }else{
-                app.showErrorModal(res.data.message, '提交失败');
-              }
+          wx.cloud.callFunction(
+            {name:"sendEmail",
+            data:{
+              title:_this.data.title,
+              mailConent:_this.data.content
             },
-            fail: function(res) {
+            success(res){
+              wx.showModal({
+                title: '反馈成功',
+                content: _this.data.title,
+                showCancel: false,
+                success: function(res) {
+                  wx.navigateBack();
+                }
+              });
+              console.log("ok",res)
+            },
+            fail(res){
               app.showErrorModal(res.errMsg, '提交失败');
-            },
-            complete: function() {
-              wx.hideToast();
+              console.log("false",res)
             }
           });
         }

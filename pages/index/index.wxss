@@ -1,8 +1,13 @@
+.class-noticebar{
+  display:flex;
+  flex-direction:row;
+  height:30px;
+}
 .uploader{
   font-size: 13pt;
   line-height: 85rpx;
   height: 85rpx;
-  background: #e55c5c;
+  background: #2f4796;
   color: #fff;
   text-align: center;
   border-radius: 5px;
@@ -18,9 +23,7 @@
   flex-direction: row;
   align-items: center;
 }
-page{
-    height:100%;
-  }
+
 .topic{
     margin-top: 5px;
     height:100%;
@@ -100,7 +103,7 @@ swiper {
   height: 100px;
   background-color: #FFF;
   padding-left: 100px;
-  border-bottom: 1px solid #E7E7EB;
+  border-bottom: 1px solid #eee78b;
 }
 .single_image_wrap {
   position: absolute;

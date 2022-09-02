@@ -1,6 +1,17 @@
 import * as echarts from '../../ec-canvas/echarts';
 const app = getApp();
 
+var dataClass=[
+  {value: 0,name: '彩色'},
+  {value: 0,name: '黑/灰色'},
+  {value: 0,name: '荧光'},
+  {value: 0,name: '偏振'},
+  {value: 0,name: 'C5'},
+  {value: 0,name: 'C6'},
+  {value: 0,name: 'C7'},
+  {value: 0,name: 'C8'},
+]
+
 function formatStringLen(strVal, len, padChar){
   padChar = padChar || "*";
   if (!strVal) {
@@ -37,8 +48,9 @@ function initChart(canvas, width, height, dpr) {
       
       type: 'pie',
       center: ['50%', '60%'],
-      radius: ['10%', '50%'],
-      data: getApp().globalData.record.dataClass,/*[{
+      radius: ['10%', '50%'],   
+      data: dataClass,//getApp().globalData.record.dataClass,
+      /*[{
         value: 55,
         name: '彩色'
       }, {
@@ -67,7 +79,7 @@ function initChart(canvas, width, height, dpr) {
       borderColor: '#0000ff',
       borderWidth: '0',
       formatter: function(name){    
-        let data= getApp().globalData.record.dataClass; 
+        let data= dataClass;//getApp().globalData.record.dataClass; 
         const value = data.find(v=>v.name===name).value;
         const result = name + "："+ value+"%";          
         return formatStringLen(result,12,' ');        
@@ -110,6 +122,7 @@ Page({
     b:"dd",
     d:"ddd"
   },
+  
   onShareAppMessage: function (res) {
     return {
       title: 'ECharts 可以在微信小程序中使用啦！',
@@ -123,7 +136,12 @@ Page({
       onInit: initChart
     }
   },
-
+  onLoad(options) {
+    console.log('lasdflkasdfjl')
+    console.log(getApp().globalData.record.dataClass)
+    if (getApp().globalData.listNo > 0)
+    dataClass = getApp().globalData.record.dataClass
+  },
   onReady() {
   }
 });

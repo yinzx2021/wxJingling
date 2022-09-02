@@ -1,14 +1,15 @@
 <!--about.wxml-->
+<image  src="/images/logo2.png"></image>
 <view class="container">
-  <view class="header">
+  <!--view class="header">
     <view class="black-cover"></view>
     <image class="logo" src="/images/more/logo.png"></image>
     <image class="title" src="/images/more/title.png"></image>
-  </view>
+  </view-->
   <view class="content">
     <view class="version">
       <view class="version-title">
-        <text class="title-name">经纬新技术</text>
+        <text class="title-name">经纬新技术E系统产品线</text>
         <text class="version-text">v0.0.1</text>
         <text class="version-text">公测</text>
       </view>
@@ -21,11 +22,18 @@
         <text class="desc-title">简介</text>
         <view class="desc-list">
           <text class="desc-list-item">官网：http://xjs.jwgf.com/</text>
-          <text class="desc-list-item">Github：https://gitee.com/yinzhongxi001/pic_sort.git</text>
+          <text class="desc-list-item">Github：https://github.com/yinzx2021/wxJingling</text>
         </view>
-        <text class="desc-content">北京经纬纺机新技术有限公司，（以下简称北京新技术公司）是世界 500 强中国机械工业集团有限公司（SINOMACH 国机集团）的骨干企业——中国恒天集团有限公司（CHTC 恒天集团）的核心成员单位——经纬纺机机械股份有限公司的全资子公司。于2000年在北京经济技术开发区注册成立，注册资本15232万元，占地面积50亩。主要从事电气控制、工业检测、机器视觉、筒纱智能打包系统、纺纱智能工厂管控系统等高端产品研发。</text>
-        <text class="desc-content">welcome</text>
-        <text class="desc-content">welcome</text>
+        <text class="desc-content">...经纬e 系统采集纺织企业的设备远转数据、产品质量数据、环境数据、能耗数据、人员数据等，为企业搭建大数据平台。通过数据全流程智能反馈管理，为不同岗位的员工提供基于数据的工具，实现质量问题自我预警、分析、追溯及自我故障诊断；实现AGV运输智能调度；实现与ERP系统的无缝连接；实现以订单流程为核心的“智能排产”， 成本的自动核算及自我管控；实现智能工艺管理、质量管理。打造快速响应系统，最大挖掘设备产能；。搭建纺织企业“管控一体化”平台，助力纺织企业实现实现高质、高效、低耗的目标。
+        主要特点
+        1、实用性强，经纬e系统是依托经纬集团公司对于纺织行业长期积累的技术基础上，总结多家国内优秀纺织企业的管理模式，其功能实用性更强。
+        2、模块可裁剪，为最大程度的满足用户的个性化需求，功能模块可以裁剪，可按角色配置权限。
+        3、移动办公与快速响应，设备状态远程掌控，企业重点关注的生产异常事件快速推送，实现异常快速响应。
+        4、时效性高，数据自动采集，准确及时，报表生成时间从天缩短到几分钟，大幅提高数据的时效性。
+        5、受众范围广，功能内容涵盖纺织用户各使用角色（计划、原棉、工艺、实验室、生产、运转、统计、设备管理等纺织用户角色全方位覆盖）。
+        6、无缝集成，e系统可与任何一家第三方系统集成，已和多家企业的ERP系统、乌斯特专家系统、洛菲的Milmastet系统、国内外空调系统、高低压配电室系统等无缝集成。
+        7、企业数据上云，经纬e系统助力企业数据上云。
+        </text>
     </view>
     <view class="log-list" wx:else>
       <view class="describe">

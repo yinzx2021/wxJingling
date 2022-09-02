@@ -1,6 +1,6 @@
 /* pages/checkParams/checkParams.wxss */
 .container {
-  background-color: darkgrey;
+  background-color: #cccccc;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -15,7 +15,7 @@
   text-align: left;
 } 
 .slider-style {
-  color: chocolate;
+  color: rgb(2, 2, 2);
   background-color: cornflowerblue;
   margin: 10px;
   margin-left: 20px;
@@ -24,7 +24,7 @@
   height: 100%;
 }
 .model_D{
-  color: rgb(235, 222, 168);
+  color: rgb(3, 3, 3);
 }
 .model_Z{
   color: rgb(91, 9, 107);
@@ -32,7 +32,7 @@
   left:0;
 }
 .model_P{
-  color: rgb(233, 226, 221);
+  color: rgb(138, 138, 138);
   text-align: left;
   left:0;
 }
@@ -44,12 +44,24 @@
 .line{
   width: 100%;
   height: 1rpx;
-  background-color:#e9382b;
+  background-color:#0011ff;
   margin-top:7px;
   margin-bottom:7px;
   }
-  .custom-button{
-    background-color:#f3eae9;
-
+  .custom-buttond{
+    background-color:#fdfb72;
+    border-radius:150px;
+  }
+  .custom-buttonz{
+    background-color:#8603a7;
+    border-radius:150px;
+  }
+  .custom-buttonp{
+    background-color:rgb(255, 255, 255);
+    border-radius:150px;
+  }
+  .custom-buttoni{
+    background-color:rgb(250, 1, 1);
+    border-radius:150px;
   }
 

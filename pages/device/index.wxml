@@ -57,31 +57,35 @@
      <view style="text-align:center">24小时流速</view>
 </view-->
  <!--index.wxml-->
- <view class="container">
+ <van-cell title="选择日期" value="{{ date }}" bind:click="onDisplay" /> 
+  <van-calendar  show="{{ show }}" bind:close="onClose" 
+  bind:confirm="onConfirm" />
+
+ <view class="container1" hidden = "{{hiddenChart}}">
   <ec-canvas   class="barChart" id="mychart-dom-multi-bar" canvas-id="mychart-multi-bar" ec="{{ ecBar }}"></ec-canvas>
   <ec-canvas    class="lineChart" id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ecLine }}"></ec-canvas>
 </view>
 <view class="category">
     <navigator class="icon_wrap1" url="/pages/pie/index">
-        <image src="../../image/icon-qiandao.png"   mode="aspectFit" class="index_icon"></image>
+        <image src="../../image/icon-tiyu.png"   mode="aspectFit" class="index_icon"></image>
         <view class="category_item_text">
           <text>统计信息</text>
          </view>
     </navigator>
     <navigator class="icon_wrap1" url="/pages/checkParams/checkParams">
-        <image src="../../image/icon-qiandao.png"   mode="aspectFit" class="index_icon"></image>
+        <image src="../../image/icon-fujin.png"   mode="aspectFit" class="index_icon"></image>
         <view class="category_item_text">
           <text>检测参数</text>
          </view>
     </navigator>
     <navigator class="icon_wrap1" url="/pages/detail/detail">
-        <image src="../../image/icon-qiandao.png"   mode="aspectFit" class="index_icon"></image>
+        <image src="../../image/icon-fuli.png"   mode="aspectFit" class="index_icon"></image>
         <view class="category_item_text">
           <text>设备参数</text>
          </view>
     </navigator>
     <navigator class="icon_wrap1" url="/pages/deviceInfo/index">
-        <image src="../../image/icon-qiandao.png"   mode="aspectFit" class="index_icon"></image>
+        <image src="../../image/icon-muma.png"   mode="aspectFit" class="index_icon"></image>
         <view class="category_item_text">
           <text>设备档案</text>
          </view>

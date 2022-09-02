@@ -1,3 +1,11 @@
+<view class-noticebar>
+  <van-notice-bar
+      color="#fa8919"
+      background="#eee7db"
+      scrollable="true"
+      text="......AI 系列图像检测产品陆续上市"
+    />
+</view>
 <view class="logo">
       <!--image src="../../images/logo2.png"  mode="aspectFit"></image-->
       <swiper indicator-dots="{{indicatorDots}}" 
@@ -24,14 +32,15 @@
   </navigator>
 </view>
 <!-- 公司与产品介绍 -->
-<!--view class="uploader">
+<view class="uploader">
     <navigator url="../intro/intro" bindtap = "testi" open-type="navigate" class="uploader-text">
       <text>公司与产品介绍</text>
     </navigator>
-  </view--> 
+  </view> 
+
 <!-- 登录管理设备 -->
 <view class="uploader">
-    <navigator url="../multiCharts/index" open-type="navigate" class="uploader-text">
+    <navigator url="../device/index" open-type="navigate" class="uploader-text">
       <text>体验设备</text>
     </navigator>
   </view>

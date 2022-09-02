@@ -1,22 +1,24 @@
 // pages/device/index.js
 import * as echarts from '../../ec-canvas/echarts';
+import { formatTime } from "../../utils/util";
 var wxCharts = require('../../dist/wxcharts.js');
 var WxAutoImage = require('../../js/wxAutoImageCal.js');
 var columnChart = null;
+const app = getApp()
 var chartData = {
   main: {
       title: 'day',
-      data: [1500, 2000, 2500, 1700,1500, 2000, 2500, 1700,1500, 2000, 2500, 1700,1500, 2000, 2500, 1700,1500, 2000, 2500, 1700,1500, 2000, 2500, 1700],
+      data: [0, 0, 0, 0,0, 0, 0, 0,0, 0, 0, 0,0, 0, 0, 0,0, 0, 0, 0,0, 0, 0, 0],
       categories: ['0', '1', '2', '3','4', '5', '6', '7','8','9', '10', '11', '12','13', '14', '15', '16','17', '18', '19', '20','21', '22', '23']
   },
   Uv: {
     title: 'uv',
-    data: [150, 200, 250, 170,150, 200,250,170,150, 200, 250, 170,150, 200, 250, 170,150, 200,250, 170,150, 200, 250, 170],
+    data: [0, 0, 0, 0,0, 0, 0, 0,0, 0, 0, 0,0, 0, 0, 0,0, 0, 0, 0,0, 0, 0, 0],
     categories: ['0', '1', '2', '3','4', '5', '6', '7','8','9', '10', '11', '12','13', '14', '15', '16','17', '18', '19', '20','21', '22', '23']
 },
   Vv: {
     title: 'vv',
-    data: [15.0, 20.0, 25.0, 17.0,15.0, 20.0,25.0,17.0,15.0, 20.0, 25.0, 17.0,15.0, 20.0, 25.0, 17.0,15.0, 20.0,25.0, 17.0,15.0, 20.0, 25.0, 17.0],
+    data: [0, 0, 0, 0,0, 0, 0, 0,0, 0, 0, 0,0, 0, 0, 0,0, 0, 0, 0,0, 0, 0, 0],
     categories: ['0', '1', '2', '3','4', '5', '6', '7','8','9', '10', '11', '12','13', '14', '15', '16','17', '18', '19', '20','21', '22', '23']
 }
 }
@@ -34,8 +36,11 @@ Page({
     daycount:'',
     uvcount:'',
     vv:'',
-  
-  iconArray: [
+    date:formatTime(new Date()),
+    show:false,
+    dbCount:0,
+    hiddenChart:false,
+    iconArray: [
     {
       id:'intro',
       "iconUrl": '../../image/icon-qiandao.png',
@@ -115,29 +120,69 @@ cusImageLoad: function(e){
       dataCount:dataCount
     }
 },
-
+onDisplay() {
+  this.setData({ show: true });
+  this.setData({ hiddenChart: true });
+},
+onClose() {
+  this.setData({ show: false });
+  this.setData({ hiddenChart: false });
+},
+formatDate(date) {
+  date = new Date(date);
+  return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
+},
+onConfirm(event) {
+  this.setData({
+    show: false,
+    date: this.formatDate(event.detail),
+  });
+  console.log(this.data.date);
+  this.setData({ hiddenChart: false });
+},
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad:async function (options) {
     var that = this;
     this.setData({
       deviceid:options.deviceid,
      // img_intro:"../../images/test01.png",
-    })
-    
+    })    
     console.log(this.data.deviceid);//锁定用户查看的设备ID号，查询其信息并显示
     //1、引用数据库
     //const db = wx.cloud.database({ envs: "tjnk3u19"})
     const db = wx.cloud.database({});
-    const cont = db.collection('adminlist3').where({DeviceNo:this.data.deviceid});
+    const cont = await db.collection('userbills').where({DeviceNo:this.data.deviceid});
     //2、开始查询数据了  news对应的是集合的名称
-    cont.get({
+    /*await cont.count({
+      success: res => {
+        console.log('list is '+res.total);
+        getApp().globalData.listNo = res.total;
+        that.setData({
+          dbCount:res.total
+        })
+      },
+      fail:res=>{
+        console.log('some wrong');
+      }
+    })
+    console.log('list2 is '+ getApp().globalData.listNo);*/
+   // if (that.data.dbCount > 0)
+    await cont.get({
       //如果查询成功的话
       success: res => {
         //这一步很重要，给ne赋值，没有这一步的话，前台就不会显示值
-        console.log(res.data);
-        that.setData({ 
+        console.log(res.data.length);
+        app.globalData.listNo = res.data.length;
+        app.globalData.detail=res.data[0].detail;
+        app.globalData.headers=res.data[0].headers;
+        app.globalData.passdevice=res.data[0].passdevice;
+        app.globalData.settings=res.data[0].settings;
+        app.globalData.state=res.data[0].state;
+        app.globalData.record=res.data[0].record;
+        console.log(app.globalData.listNo);
+       /* that.setData({ 
           list: res.data, 
           //提取喷出次数与流速信息
           daycount :res.data[0].daycount,
@@ -145,9 +190,9 @@ cusImageLoad: function(e){
           vv:res.data[0].vv,
           //img_intro:`cloud://cloud1-5grrxptx9b5595f3.636c-cloud1-5grrxptx9b5595f3-1306261487/${res.data[0].DeviceNo}.png`,
           //`/pages/device/index?deviceid=${res.data[0].DeviceNo}.png`
-        });
+        });*/
         //showChart(that.data.daycount);
-        var countinfo =   that.showChart(that.data.daycount,this.data.uvcount,this.data.vv);
+       // var countinfo =   that.showChart(that.data.daycount,this.data.uvcount,this.data.vv);
         console.log("countinfo");
         console.log(countinfo);
         },
@@ -167,6 +212,12 @@ cusImageLoad: function(e){
     // };
      //console.log("imgsrc");
      //console.log(this.data.img_intro);//锁定用户查看的设备ID号，查询其信息并显示  
+     if (app.globalData.listNo > 0){
+       console.log(app.globalData.record.当日日光喷出次数);
+       chartData.main.data = app.globalData.record.当日日光喷出次数;
+       chartData.Uv.data = app.globalData.record.紫外喷出次数;
+       chartData.Vv.data = app.globalData.record.当日24小时流速;
+     }
   
      
   },
@@ -311,39 +362,11 @@ cusImageLoad: function(e){
   },
 
   /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
 
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 });
 function getBarOption() {
   return {
@@ -414,7 +437,7 @@ function getBarOption() {
             color:'#993333'
           }
         },
-        data: getApp().globalData.record.当日日光喷出次数
+        data: chartData.main.data,//getApp().globalData.record.当日日光喷出次数
       },
       {
         name: '紫外偏振',
@@ -430,7 +453,7 @@ function getBarOption() {
             color:'#442299'
           }
         },
-        data: getApp().globalData.record.紫外喷出次数
+        data: chartData.Uv.data,//getApp().globalData.record.紫外喷出次数
       },
       {
         name: '红外',
@@ -505,7 +528,7 @@ function getLineOption() {
           position: 'left'
         }
       },
-      data: getApp().globalData.record.当日24小时流速
+      data: chartData.Vv.data,//getApp().globalData.record.当日24小时流速
     }, ]
   };
 }

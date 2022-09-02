@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "经纬新技术-异纤机 打包机 E系统"
+  "navigationBarTitleText":"经纬新技术-异纤机 打包机 E系统",
+  "usingComponents": {
+    "van-notice-bar":"../../dist/notice-bar/index"
+  }
   }

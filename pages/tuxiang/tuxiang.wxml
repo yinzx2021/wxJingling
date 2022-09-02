@@ -1,14 +1,15 @@
 <!--about.wxml-->
+<image  src="/images/logotx.png"></image>
 <view class="container">
-  <view class="header">
+  <!--view class="header">
     <view class="black-cover"></view>
-    <image class="logo" src="/images/more/logo.png"></image>
+    <image class="logo" src="/images/logotx.png"></image>
     <image class="title" src="/images/more/title.png"></image>
-  </view>
+  </view-->
   <view class="content">
     <view class="version">
       <view class="version-title">
-        <text class="title-name">经纬新技术</text>
+        <text class="title-name">经纬新技术图像检测产品线</text>
         <text class="version-text">v0.0.1</text>
         <text class="version-text">公测</text>
       </view>
@@ -21,11 +22,24 @@
         <text class="desc-title">简介</text>
         <view class="desc-list">
           <text class="desc-list-item">官网：http://xjs.jwgf.com/</text>
-          <text class="desc-list-item">Github：https://gitee.com/yinzhongxi001/pic_sort.git</text>
+          <text class="desc-list-item">Github：https://github.com/yinzx2021/wxJingling</text>
         </view>
-        <text class="desc-content">北京经纬纺机新技术有限公司，（以下简称北京新技术公司）是世界 500 强中国机械工业集团有限公司（SINOMACH 国机集团）的骨干企业——中国恒天集团有限公司（CHTC 恒天集团）的核心成员单位——经纬纺机机械股份有限公司的全资子公司。于2000年在北京经济技术开发区注册成立，注册资本15232万元，占地面积50亩。主要从事电气控制、工业检测、机器视觉、筒纱智能打包系统、纺纱智能工厂管控系统等高端产品研发。</text>
-        <text class="desc-content">welcome</text>
-        <text class="desc-content">welcome</text>
+        <text class="desc-content">... 图像检测产品线包括异纤机、验布机、筒纱外观检测、罗拉外观检测、电子黑板等系列产品。
+        ...精灵系列异性纤维分检机，是北京经纬纺机新技术有限公司积累近20年的技术研发经验、30余项知识产权、400多家棉纺企业使用经验、自主创新推出的全自动智能化异纤分检设备。该系列产品技术含量高、检出效果好、运行稳定性强，尤其是各类异纤检出均衡无短板，受到各类纺织企业的追捧。
+        ...本设备适合安装在清梳联流程、清花成卷线中，能够实时、高效检出棉花中各类异纤，包括丙纶丝、麻丝、头发丝、各色线头、塑料片、布块、油花、白色丙纶丝和白线头、地膜等。
+        精灵系列异纤机，技术特点如下：
+        技术优势：
+        看得见：横向8K分辨率，日光4台检彩色，紫外偏振4台检地膜；能识别：人工智能大数据深度学习-自我学习能力强，纺的越多，检测效果越佳；喷得准：实时的流速检测，独创的喷阀快速打开控制机制，精准喷出，降低落棉量。
+        稳定性：
+        永不死机：处理模块采用“看门狗”设计，突发故障硬件自重启、软件自检测；无工控机死机问题：基于嵌入式硬件图像处理平台设计，无金手指接触，功耗极低，稳定性强，使用寿命长；云”智能系统实时监测异纤机运行状态。
+        可维护性：
+        傻瓜式操作：简约设计风格，可操作性强，车间工人一学就会；维护便捷：灯箱与通道分离，内部不落灰；参数设置少：“云”智能算法自适应调优寻找最佳参数，用户告别传统异纤机繁琐的参数设置，提升软件易用性。
+        筒纱检测外观检测系统，技术特点如下：
+        ...运动中检测、提高检出效率；远程运维，实时响应；多算法融合，精准分类；领先的Linux系统，安全、稳定；可靠、计算速度更快；模块化设计、可在线升级；界面简洁、方便操作；白纱、色纱均可检测
+        无纺布表面缺陷检测，技术特点如下：
+        ...，技术特点如下：
+        ...可准确识别黑点、黄点、黑丝、及各种彩色细丝;对检测疵点分黑点、黄点、丝物三类，最小检测尺寸0.05平方毫米;模型泛化性能好，可同时检测薄布、厚布、网格 布，无需调节光源和参数;疵点地图和激光指示线分4个通道疵点定位更精准;模型具备屏蔽褶皱功能，误检率低。
+</text>
     </view>
     <view class="log-list" wx:else>
       <view class="describe">
@@ -41,7 +55,7 @@
   <view class="footer">
     <view class="footer-lanshan">
         <image src="/images/more/lanshan.png"></image>
-        <text>经纬新技术</text>
+        <text>经纬新技术-图像检测产品线</text>
     </view>
     <text>经纬纺织机械股份有限公司</text>
     <text>Copyright @ 2021 All Rights Reserved</text>

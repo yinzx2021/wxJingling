@@ -1,5 +1,6 @@
 <!--index.wxml-->
-<view class="container">
+<button bindtap='sendEmail'>sendMail</button>
+<!--view class="container">
   <ec-canvas   class="barChart" id="mychart-dom-multi-bar" canvas-id="mychart-multi-bar" ec="{{ ecBar }}"></ec-canvas>
   <ec-canvas    class="lineChart" id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ecLine }}"></ec-canvas>
 </view>
@@ -28,4 +29,4 @@
           <text>设备档案</text>
          </view>
     </navigator>
-</view>
+</view-->
