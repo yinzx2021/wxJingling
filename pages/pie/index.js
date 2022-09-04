@@ -137,10 +137,12 @@ Page({
     }
   },
   onLoad(options) {
-    console.log('lasdflkasdfjl')
-    console.log(getApp().globalData.record.dataClass)
-    if (getApp().globalData.listNo > 0)
-    dataClass = getApp().globalData.record.dataClass
+    console.log('pie is tian ' + app.globalData.tiyan)
+    
+    if ((app.globalData.listNo > 0)|(app.globalData.tiyan)){
+         dataClass = app.globalData.record.dataClass
+         console.log(app.globalData.record.dataClass)
+    }
   },
   onReady() {
   }

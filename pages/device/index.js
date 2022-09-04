@@ -149,11 +149,20 @@ onConfirm(event) {
       deviceid:options.deviceid,
      // img_intro:"../../images/test01.png",
     })    
-    console.log(this.data.deviceid);//锁定用户查看的设备ID号，查询其信息并显示
+    console.log('deviceid is '+this.data.deviceid);//锁定用户查看的设备ID号，查询其信息并显示
+    if (this.data.deviceid === '0'){
+      app.globalData.tiyan = true;
+      console.log('tiyan is '+ app.globalData.tiyan)
+      chartData.main.data = app.globalData.record.当日日光喷出次数;
+      chartData.Uv.data = app.globalData.record.紫外喷出次数;
+      chartData.Vv.data = app.globalData.record.当日24小时流速;
+      return;//体验，不需要再查询数据库
+    }
+    app.globalData.tiyan = false;   
     //1、引用数据库
     //const db = wx.cloud.database({ envs: "tjnk3u19"})
     const db = wx.cloud.database({});
-    const cont = await db.collection('userbills').where({DeviceNo:this.data.deviceid});
+    const cont = await db.collection('adminlist').where({DeviceNo:this.data.deviceid});
     //2、开始查询数据了  news对应的是集合的名称
     /*await cont.count({
       success: res => {
@@ -181,6 +190,7 @@ onConfirm(event) {
         app.globalData.settings=res.data[0].settings;
         app.globalData.state=res.data[0].state;
         app.globalData.record=res.data[0].record;
+        console.log(app.globalData.record);
         console.log(app.globalData.listNo);
        /* that.setData({ 
           list: res.data, 
@@ -194,7 +204,6 @@ onConfirm(event) {
         //showChart(that.data.daycount);
        // var countinfo =   that.showChart(that.data.daycount,this.data.uvcount,this.data.vv);
         console.log("countinfo");
-        console.log(countinfo);
         },
         fail: (res) =>{  
           console.log(res);

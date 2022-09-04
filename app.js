@@ -19,8 +19,9 @@ App({
 
   },
   globalData:{
+      tiyan:false,
       DeviceNo:"232",
-      listNo:0,
+      listNo:1,
       name: "",
       password:"",
       date:Date(),

@@ -1,4 +1,5 @@
 // pages/checkParams/checkParams.js
+const app = getApp()
 Page({
 
   /**
@@ -37,14 +38,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    if (getApp().globalData.listNo > 0)
+    if ((getApp().globalData.listNo > 0)|(app.globalData.tiyan))
     this.setData(
       {
-        ModalNameDevice:getApp().globalData.settings.ModelName,
-        currentValue :  getApp().globalData.settings.色彩灵敏度,
-        currentValueZ : getApp().globalData.settings.荧光灵敏度,
-        currentValueP : getApp().globalData.settings.偏振灵敏度,
-        currentValueI : getApp().globalData.settings.红外灵敏度
+        ModalNameDevice:app.globalData.settings.ModelName,
+        currentValue :  app.globalData.settings.色彩灵敏度,
+        currentValueZ : app.globalData.settings.荧光灵敏度,
+        currentValueP : app.globalData.settings.偏振灵敏度,
+        currentValueI : app.globalData.settings.红外灵敏度
       }
     )
   },

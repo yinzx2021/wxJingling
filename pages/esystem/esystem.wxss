@@ -148,3 +148,8 @@
   height: 10pt;
   margin-right: 5rpx;
 }
+.imglogo{
+  display:flex; 
+ justify-content: center; 
+ align-items:center; 
+}

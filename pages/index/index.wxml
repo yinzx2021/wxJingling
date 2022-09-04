@@ -40,7 +40,7 @@
 
 <!-- 登录管理设备 -->
 <view class="uploader">
-    <navigator url="../device/index" open-type="navigate" class="uploader-text">
+    <navigator url="../device/index?deviceid={{0}}" open-type="navigate" class="uploader-text">
       <text>体验设备</text>
     </navigator>
   </view>

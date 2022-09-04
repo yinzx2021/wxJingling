@@ -56,6 +56,11 @@
   margin-left: 20rpx;
   background-color: #fffd90;
 }
+.vws3{
+  box-sizing: border-box;
+  margin-left: 20rpx;
+  background-color: #f50000;
+}
 .page{
   height:100%;
   background:#93949c;

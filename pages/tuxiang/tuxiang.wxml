@@ -1,5 +1,7 @@
 <!--about.wxml-->
-<image  src="/images/logotx.png"></image>
+<view class="imglogo">
+<image   src="/images/logotx.png"></image>
+</view>
 <view class="container">
   <!--view class="header">
     <view class="black-cover"></view>

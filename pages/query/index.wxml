@@ -20,12 +20,22 @@
         <view class="vw">
               <label for="" class="font14" class="cs">产线类型</label> <label for="" class="font14" class="cs">{{item.proline}}</label>
           </view>    
-          <view class="vws" wx:if="{{item.deviceStatus}}">
+          
+          <view class="vws" wx:if="{{item.status_switch}}">
               <label for="" class="font14" class="cs">设备状态</label> <label for="" class="font14" class="cs">正常</label>
           </view>  
           <view class="vws2" wx:else>
               <label for="" class="font14" class="cs">设备状态</label> <label for="" class="font14" class="cs">离线</label>
           </view>  
+          <view class="vws3" wx:if="{{item.status_miandaizi==''}}">
+              <label for="" class="font14" class="cs">棉袋子满</label> <label for="" class="font14" class="cs">异常</label>
+          </view>   
+          <view class="vws3" wx:elif="{{item.status_qiya.length ==''}}">
+              <label for="" class="font14" class="cs">气压异常</label> <label for="" class="font14" class="cs">异常</label>
+          </view> 
+          <view class="vws3" wx:elif="{{item.status_reji.length ==''}}">
+              <label for="" class="font14" class="cs">热继异常</label> <label for="" class="font14" class="cs">异常</label>
+          </view> 
     </view>
   </view>
     <button class="devicebtn" bindtap='login'  id="{{item.DeviceNo}}" type="primary">查看设备状态</button>

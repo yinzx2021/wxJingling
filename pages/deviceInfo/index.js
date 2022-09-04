@@ -1,4 +1,5 @@
 // pages/deviceInfo/index.js
+const app = getApp()
 Page({
 
   /**
@@ -21,20 +22,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    console.log(getApp().globalData.listNo)
-    if (getApp().globalData.listNo > 0){
+    console.log(app.globalData.listNo)
+    if ((app.globalData.listNo > 0)|(app.globalData.tiyan))
+    {
     this.setData(
       {
-        ProModel :  getApp().globalData.headers.设备型号,   
-        userName:   getApp().globalData.headers.公司名称,
-        Address:    getApp().globalData.headers.地址,
-        Phone:      getApp().globalData.headers.联系方式,
-        CPass:      getApp().globalData.passdevice.普通密码,
-        SPass:      getApp().globalData.passdevice.信号密码,
-        VPass:      getApp().globalData.passdevice.超级密码,
-        TCode:      getApp().globalData.headers.远控码,
-        Installer:  getApp().globalData.headers.安装人员,
-        DateInstall:getApp().globalData.headers.安装时间
+        ProModel :  app.globalData.headers.设备型号,   
+        userName:   app.globalData.headers.公司名称,
+        Address:    app.globalData.headers.地址,
+        Phone:      app.globalData.headers.联系方式,
+        CPass:      app.globalData.passdevice.普通密码,
+        SPass:      app.globalData.passdevice.信号密码,
+        VPass:      app.globalData.passdevice.超级密码,
+        TCode:      app.globalData.headers.远控码,
+        Installer:  app.globalData.headers.安装人员,
+        DateInstall:app.globalData.headers.安装时间
       }
     )
     }

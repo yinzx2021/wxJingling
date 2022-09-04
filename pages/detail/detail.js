@@ -27,10 +27,10 @@ Page({
       } 
     },
     onLoad: function(opts){
-      console.log(getApp().globalData.detail);
-      if (getApp().globalData.listNo > 0)
+      console.log(app.globalData.detail);
+      if ((app.globalData.listNo > 0)|(app.globalData.tiyan))
       this.setData({
-          detail: getApp().globalData.detail
+          detail: app.globalData.detail
       });
     }
 });
