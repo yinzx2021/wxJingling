@@ -190,7 +190,7 @@ onConfirm(event) {
         app.globalData.settings=res.data[0].settings;
         app.globalData.state=res.data[0].state;
         app.globalData.record=res.data[0].record;
-        console.log(app.globalData.record);
+        console.log(res.data[0].record);
         console.log(app.globalData.listNo);
        /* that.setData({ 
           list: res.data, 
