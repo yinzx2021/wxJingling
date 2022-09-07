@@ -3,7 +3,8 @@
       color="#fa8919"
       background="#eee7db"
       scrollable="true"
-      text="......AI 系列图像检测产品陆续上市"
+      text="{{notice}}"
+      left-icon="volume-o"
     />
 </view>
 <view class="logo">

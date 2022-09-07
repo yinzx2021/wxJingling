@@ -1,7 +1,7 @@
 // pages/device/index.js
 import * as echarts from '../../ec-canvas/echarts';
 import { formatTime } from "../../utils/util";
-var wxCharts = require('../../dist/wxcharts.js');
+//var wxCharts = require('../../dist/wxcharts.js');
 var WxAutoImage = require('../../js/wxAutoImageCal.js');
 var columnChart = null;
 const app = getApp()
@@ -22,6 +22,35 @@ var chartData = {
     categories: ['0', '1', '2', '3','4', '5', '6', '7','8','9', '10', '11', '12','13', '14', '15', '16','17', '18', '19', '20','21', '22', '23']
 }
 }
+let barChart;
+ function  barChartonInit(canvas, width, height, dpr) {
+    barChart = echarts.init(canvas, null, {
+    width: width,
+    height: height,
+    devicePixelRatio: dpr // new
+  });
+  canvas.setChart(barChart);
+  barChart.setOption(getBarOption());
+  return barChart;
+}
+let lineChart;
+function lineChartonInit(canvas, width, height, dpr) {
+  lineChart = echarts.init(canvas, null, {
+    width: width,
+    height: height,
+    devicePixelRatio: dpr // new
+  });
+  canvas.setChart(lineChart);
+  lineChart.setOption(getLineOption());
+  return lineChart;
+}
+function refreshData(){
+  var option = barChart.getBarOption();
+  option.series[0].data = chartData.main.data;
+  option.series[1].data = chartData.Uv.data;
+  var option = barChart.getLineOption();
+  option.series[0].data = chartData.Vv.data;
+}
 // <view style="text-align:center">24小时喷出次数</view>
 Page({
 
@@ -37,44 +66,17 @@ Page({
     uvcount:'',
     vv:'',
     date:formatTime(new Date()),
+    minDate: new Date(2020, 0, 1).getTime(),
     show:false,
     dbCount:0,
     hiddenChart:false,
-    iconArray: [
-    {
-      id:'intro',
-      "iconUrl": '../../image/icon-qiandao.png',
-      "iconText": '公司简介'
+    optionsdb:{
+        deviceid:''
     },
-    {
-      id:'intro',
-      "iconUrl": '../../image/icon-fujin.png',
-      "iconText": '图像检测'
-    },
-    {
-      id:'intro',
-      "iconUrl": '../../image/icon-zhanhui.png',
-      "iconText": '自动物流'
-    },
-    {
-      id:'intro',
-        "iconUrl": '../../image/icon-fuli.png',
-        "iconText": 'E系统'
-    },
-    {
-        id:'news',
-        "iconUrl": '../../image/icon-muma.png',
-        "iconText": '新闻资讯'
-    },
-    {
-        id:'intro',
-        "iconUrl": '../../image/icon-xingxing.png',
-        "iconText": '联系我们'
-    },
-    
-],
+
 ecBar: {
-  onInit: function (canvas, width, height, dpr) {
+  onInit:barChartonInit
+  /*onInit: function (canvas, width, height, dpr) {
     const barChart = echarts.init(canvas, null, {
       width: width,
       height: height,
@@ -84,10 +86,11 @@ ecBar: {
     barChart.setOption(getBarOption());
 
     return barChart;
-  }
+  }*/
 },
   ecLine:{
-    onInit: function (canvas, width, height, dpr) {
+    onInit : lineChartonInit
+    /*onInit: function (canvas, width, height, dpr) {
       const lineChart = echarts.init(canvas, null, {
         width: width,
         height: height,
@@ -96,7 +99,7 @@ ecBar: {
       canvas.setChart(lineChart);
       lineChart.setOption(getLineOption());
       return lineChart;
-    }
+    }*/
 }
 },
 cusImageLoad: function(e){
@@ -122,31 +125,45 @@ cusImageLoad: function(e){
 },
 onDisplay() {
   this.setData({ show: true });
-  this.setData({ hiddenChart: true });
+  this.setData({ hiddenChart: true });//真机调试时 注释掉
+  console.log("calendar"+this.data.hiddenChart)
 },
 onClose() {
   this.setData({ show: false });
   this.setData({ hiddenChart: false });
+  console.log(this.data.hiddenChart)
 },
 formatDate(date) {
   date = new Date(date);
   return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
 },
+
 onConfirm(event) {
   this.setData({
     show: false,
     date: this.formatDate(event.detail),
   });
-  console.log(this.data.date);
+  console.log('confirm date is '+this.data.date);
   this.setData({ hiddenChart: false });
+  this.onLoad(this.data.optionsdb);
+  /////////////
+},
+querydb(){
+
 },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad:async function (options) {
     var that = this;
+   // this.optionsdb.deviceid=options.deviceid;
+   // console.log(this.optionsdb.deviceid);
     this.setData({
       deviceid:options.deviceid,
+      optionsdb:{
+        deviceid:options.deviceid,
+      },
+      date:this.formatDate(this.data.date)
      // img_intro:"../../images/test01.png",
     })    
     console.log('deviceid is '+this.data.deviceid);//锁定用户查看的设备ID号，查询其信息并显示
@@ -156,28 +173,20 @@ onConfirm(event) {
       chartData.main.data = app.globalData.record.当日日光喷出次数;
       chartData.Uv.data = app.globalData.record.紫外喷出次数;
       chartData.Vv.data = app.globalData.record.当日24小时流速;
+      console.log('tiyan vv '+ app.globalData.record.当日24小时流速 )
       return;//体验，不需要再查询数据库
     }
-    app.globalData.tiyan = false;   
+    app.globalData.tiyan = false; 
+    app.globalData.record.当日24小时流速 = chartData.main.Vv;
+    app.globalData.record.当日日光喷出次数 = chartData.main.data;
+    app.globalData.record.紫外喷出次数 = chartData.Uv.data;
     //1、引用数据库
     //const db = wx.cloud.database({ envs: "tjnk3u19"})
     const db = wx.cloud.database({});
-    const cont = await db.collection('adminlist').where({DeviceNo:this.data.deviceid});
+    console.log('devicedate is '+ this.data.date);
+    const cont = await db.collection('adminlist').where({DeviceNo:this.data.deviceid,date:this.data.date});
     //2、开始查询数据了  news对应的是集合的名称
-    /*await cont.count({
-      success: res => {
-        console.log('list is '+res.total);
-        getApp().globalData.listNo = res.total;
-        that.setData({
-          dbCount:res.total
-        })
-      },
-      fail:res=>{
-        console.log('some wrong');
-      }
-    })
-    console.log('list2 is '+ getApp().globalData.listNo);*/
-   // if (that.data.dbCount > 0)
+    //https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-sdk-api/database/command/Command.and.html
     await cont.get({
       //如果查询成功的话
       success: res => {
@@ -190,20 +199,10 @@ onConfirm(event) {
         app.globalData.settings=res.data[0].settings;
         app.globalData.state=res.data[0].state;
         app.globalData.record=res.data[0].record;
-        console.log(res.data[0].record);
-        console.log(app.globalData.listNo);
-       /* that.setData({ 
-          list: res.data, 
-          //提取喷出次数与流速信息
-          daycount :res.data[0].daycount,
-          uvcount:res.data[0].uvcount,
-          vv:res.data[0].vv,
-          //img_intro:`cloud://cloud1-5grrxptx9b5595f3.636c-cloud1-5grrxptx9b5595f3-1306261487/${res.data[0].DeviceNo}.png`,
-          //`/pages/device/index?deviceid=${res.data[0].DeviceNo}.png`
-        });*/
-        //showChart(that.data.daycount);
-       // var countinfo =   that.showChart(that.data.daycount,this.data.uvcount,this.data.vv);
+        console.log(res.data[0].record);        
         console.log("countinfo");
+        barChart.setOption(getBarOption());
+        lineChart.setOption(getLineOption());//该部分在await 异步操作完成后进行
         },
         fail: (res) =>{  
           console.log(res);
@@ -213,135 +212,9 @@ onConfirm(event) {
             duration: 2500
           })    
       }
-    })
-    //if (that.data.img_intro != "../../images/test01.png") {    
-     // that.setData({
-       // imgsrc:that.data.img_intro
-     // })            
-    // };
-     //console.log("imgsrc");
-     //console.log(this.data.img_intro);//锁定用户查看的设备ID号，查询其信息并显示  
-     if (app.globalData.listNo > 0){
-       console.log(app.globalData.record.当日日光喷出次数);
-       chartData.main.data = app.globalData.record.当日日光喷出次数;
-       chartData.Uv.data = app.globalData.record.紫外喷出次数;
-       chartData.Vv.data = app.globalData.record.当日24小时流速;
-     }
-  
-     
+    }) 
   },
   
-  showChart:function(daycount,uvcount,vv){
-    ///////////////////////
-    console.log("into showChart");
-    var countDayin = [];var countDayout = [];
-    var countUVin = []; var countUVout  = [];
-    var vvin=[];var vvout=[];
-    countDayin = daycount.split(',');
-    countUVin  = uvcount.split(',');
-    vvin       = vv.split(',');
-    for (var i=0;i<24;i++)
-    {
-      chartData.main.data[i] = 0;
-      chartData.Uv.data[i] = 0;
-      chartData.Vv.data[i] = 0;
-    }
-    for (var i=0;i<countDayin.length;i++)
-    {
-      chartData.main.data[i] = +countDayin[i];
-    }
-    console.log(chartData.main.data);
-    for (var i=0;i<countUVin.length;i++)
-    {
-      chartData.Uv.data[i] = +countUVin[i];
-    }
-    console.log(chartData.Uv.data);
-    for (var i=0;i<vvin.length;i++)
-    {
-      chartData.Vv.data[i] = +vvin[i];
-    }
-    console.log(chartData.Vv.data);
-    ////////////////////
-    //var createSimulationData= that.createSimulationData(that.data.daycount);
-   //  var datatest = createSimulationData.dataCount;
-     var windowWidth = 320;
-        try {
-          var res = wx.getSystemInfoSync();
-          windowWidth = res.windowWidth;
-        } catch (e) {
-          console.error('getSystemInfoSync failed!');
-        }
-     columnChart = new wxCharts({
-        canvasId:'columnCanvas',
-        type:'column',
-        animation: true,
-        categories: chartData.main.categories,
-        series: [{
-            name: 'day',
-            data: chartData.main.data,
-          // format: function (val, name) {         
-           //  return val.toFixed(0) + '次';
-           // }
-            },
-            {
-              name: 'UV',
-              data: chartData.Uv.data,
-            //  format: function (val, name) {return val.toFixed(0) + '次';}
-              }
-          ],
-            yAxis: {
-              format: function (val,name) {
-              return val + '';},
-           //   title: '喷出次数',
-           min: 0,
-          },
-          xAxis: {
-              disableGrid: false,
-              type: 'calibration'
-          },
-          extra: {
-              column: {
-                  width: 15
-              }
-          },
-          width: windowWidth,
-          height: 180,
-          dataLabel: false,
-     })
-     //console.log(columnChart);
-     columnChart = new wxCharts({
-      canvasId:'lineCanvas',
-      type:'line',
-      animation: true,
-      categories: chartData.main.categories,
-      series: [{
-          name: 'v',
-          data: chartData.Vv.data,
-         //format: function (val, name) {return val.toFixed(0) + '次';}
-          },          
-        ],
-          yAxis: {
-          //  format: function (val) {return val + '次';},
-          //  title: '流速',
-            min: 0,
-        },
-        xAxis: {
-            disableGrid: false,
-            type: 'calibration'
-        },
-        extra: {
-            column: {
-                width: 15
-            }
-        },
-        width: windowWidth,
-        height: 180,
-        dataLabel: false,
-   })
-  // console.log(columnChart);
-   return true;
-  },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -353,6 +226,9 @@ onConfirm(event) {
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
+   // barChart.setOption(getBarOption());
+   // lineChart.setOption(getLineOption());
     /*/ 下载文件
     wx.cloud.downloadFile({
       //   // 返回链接地址 仅支持小程序中展示 cloud协议
@@ -446,7 +322,7 @@ function getBarOption() {
             color:'#993333'
           }
         },
-        data: chartData.main.data,//getApp().globalData.record.当日日光喷出次数
+        data: getApp().globalData.record.当日日光喷出次数//chartData.main.data,//
       },
       {
         name: '紫外偏振',
@@ -462,7 +338,7 @@ function getBarOption() {
             color:'#442299'
           }
         },
-        data: chartData.Uv.data,//getApp().globalData.record.紫外喷出次数
+        data: getApp().globalData.record.紫外喷出次数//chartData.Uv.data,//
       },
       {
         name: '红外',
@@ -537,7 +413,7 @@ function getLineOption() {
           position: 'left'
         }
       },
-      data: chartData.Vv.data,//getApp().globalData.record.当日24小时流速
+      data: getApp().globalData.record.当日24小时流速//chartData.Vv.data
     }, ]
   };
 }

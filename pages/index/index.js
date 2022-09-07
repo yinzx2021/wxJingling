@@ -3,6 +3,7 @@ var WxAutoImage = require('../../js/wxAutoImageCal.js');
 let app = getApp();
 Page({
   data:{
+    notice:app.globalData.notice,
     img_intro:'',
       imgUrls: [
         '../../images/logo1.png',
@@ -48,6 +49,25 @@ Page({
     autoplay: true,
     interval: 3000,
     duration: 1200,
+  },
+
+  onLoad:async function(options){
+    console.log('start ')// 读出的值可以直接赋值给全局变量使用
+    const db = wx.cloud.database();
+    const collections = await db.collection('news');
+    const db2 = collections.doc('f6e08a646317f45616cd01a6598674e7');
+    await db2.get({
+      success:res=>{
+        console.log(res.data.guangbo)// 读出的值可以直接赋值给全局变量使用
+        getApp().globalData.notice = res.data.guangbo
+      },
+      fail:err=>{ 
+        console.log(err)
+      }
+      })
+    this.setData({
+       notice:app.globalData.notice, 
+    })
   },
   onShow: function (options){
     console.log("hello");

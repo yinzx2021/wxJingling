@@ -19,6 +19,7 @@ App({
 
   },
   globalData:{
+      notice:'夯实质量基石 强化质量创新 打造质量优势',
       tiyan:false,
       DeviceNo:"232",
       listNo:1,
@@ -114,6 +115,7 @@ App({
             },        
           } 
   },
+  
   callClound(name,data,callback){
     if(!cloudInited) {
       wx.cloud.init()

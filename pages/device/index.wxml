@@ -58,7 +58,7 @@
 </view-->
  <!--index.wxml-->
  <van-cell title="选择日期" value="{{ date }}" bind:click="onDisplay" /> 
-  <van-calendar  show="{{ show }}" bind:close="onClose" 
+  <van-calendar  color="#248f34" min-date="{{ minDate }}" show="{{ show }}" bind:close="onClose" 
   bind:confirm="onConfirm" />
 
  <view class="container1" hidden = "{{hiddenChart}}">
