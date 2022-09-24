@@ -124,6 +124,7 @@
 }
 .desc-content{
   padding-bottom: 15rpx;
+
 }
 .footer{
   display: flex;

@@ -40,85 +40,13 @@ Page({
       'content': e.detail.value
     });
   },
-  choosePhoto: function() {
-    var _this = this;
-    wx.showModal({
-      title: '提示',
-      content: '上传图片需要消耗流量，是否继续？',
-      confirmText: '继续',
-      success: function(res) {
-        if (res.confirm) {
-          wx.chooseImage({
-            count: 4,
-            sourceType: ['album'],
-            success: function (res) {
-              var tempFilePaths = res.tempFilePaths, imgLen = tempFilePaths.length;
-              _this.setData({
-                uploading: true,
-                imgLen: imgLen
-              });
-              tempFilePaths.forEach(function(e){
-                _this.uploadImg(e);
-              });
-            }
-          });
-        }
-      }
-    });
-  },
-  uploadImg: function(path){
-    var _this = this;
-    // 上传图片
-    var tempFilePaths = res.tempFilePaths
-    for (var i = 0; i < tempFilePaths.length; i++) {
-    wx.uploadFile({
-      url: 'https://graph.baidu.com/upload',
-      filePath: tempFilePaths[i],
-      name: "file",
-      header: {
-        "content-type": "multipart/form-data"
-      },
-      success: function (res) {
-        if (res.statusCode == 200) {
-          wx.showToast({
-            title: "上传成功",
-            icon: "none",
-            duration: 1500
-          })
-
-          that.data.imgs.push(JSON.parse(res.data).data)
-
-          that.setData({
-            imgs: that.data.imgs
-          })
-        }
-      },
-      fail: function (err) {
-        wx.showToast({
-          title: "上传失败",
-          icon: "none",
-          duration: 2000
-        })
-      },
-      complete: function (result) {
-        console.log(result.errMsg)
-      }
-    })}
-  },
-  previewPhoto: function(e){
-    var _this = this;
-    //预览图片
-    if(_this.data.uploading){
-      app.showErrorModal('正在上传图片', '预览失败');
-      return false;
-    }
-    wx.previewImage({
-      current: _this.data.imgs[e.target.dataset.index],
-      urls: _this.data.imgs
-    });
-  },
   submit: function(){
     var _this = this, title = '', content = '', imgs = '';
+    if(!app.globalData.is_bind)
+    {
+      app.showErrorModal('请绑定先', '提交失败');
+      return false;
+    }
     if(_this.data.uploading){
       app.showErrorModal('正在上传图片', '提交失败');
       return false;
@@ -144,12 +72,12 @@ Page({
             });
             content += imgs;
           }
-          app.showLoadToast();
+         // app.showLoadToast();
           wx.cloud.callFunction(
             {name:"sendEmail",
             data:{
-              title:_this.data.title,
-              mailConent:_this.data.content
+              title:_this.data.title +'nickname is ' +app.globalData.userinfo.nickName,
+              mailConent:_this.data.content + 'openid is ' + app.globalData.openId +  "mobile phone is  "+ app.globalData.MobilePhone
             },
             success(res){
               wx.showModal({

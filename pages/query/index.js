@@ -25,7 +25,7 @@ Page({
   onLoad: function (options) {
     var _this = this;
     username_query = options.username_query;    
-    console.log(username_query);
+    console.log('username is ' + username_query);
     //1、引用数据库
     //const db = wx.cloud.database({ envs: "tjnk3u19"})
     const db = wx.cloud.database({});
@@ -35,7 +35,7 @@ Page({
         //如果查询成功的话
       success: res => {
         //这一步很重要，给ne赋值，没有这一步的话，前台就不会显示值
-        console.log(res.data);
+        console.log(res.data.length);
         this.setData({
           list: res.data
         })
@@ -106,32 +106,3 @@ Page({
  
   }
 })
-/*
- <view class="vw">
-         <label for="" class="font14" class="cs">工厂信息</label> <label for="" class="font14" class="cs">{{item.factoryName}}</label>
-    <!--/view-->
-    <!--view class="vw"-->
-          <label for="" class="font14" class="cs">产线类型</label> <label for="" class="font14" class="cs">{{item.proline}}</label>
-      </view>    
-     <view class="vw">
-          <label for="" class="font14" class="cs">设备型号</label> <label for="" class="font14" class="cs">{{item.DeviceType}}</label>
-    <!--/view-->
-    <!--view class="vw"-->
-          <label for="" class="font14" class="cs">设备编号</label> <label for="" class="font14" class="cs">{{item.DeviceNo}}</label>
-     </view>
-
-*/
-/*
-<i-row i-class="demo-row">
-          <i-col span="12" font="" offset="0" i-class="demo-col">  工厂信息：{{item.factoryName}}  </i-col>
-          <i-col span="12" i-class="demo-col light">产线类型：{{item.proline}}</i-col>
-     </i-row>
-     <i-row i-class="demo-row">
-          <i-col span="12"  offset="0" i-class="demo-col">  设备型号：{{item.DeviceType}}  </i-col>
-          <i-col span="12" i-class="demo-col light">设备编号：{{item.DeviceNo}}</i-col>
-     </i-row>
-     <view class="btnforquery">
-        <button bindtap='login'  size = "mini" id="{{item.DeviceNo}}" type="primary">查看设备状态</button>
-    </view>
-    <view class='line'></view>
-*/

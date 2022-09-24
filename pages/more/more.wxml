@@ -1,7 +1,6 @@
 <!--more.wxml-->
 <view class="container">
-
-  <view class="user-info-box">
+  <!--view class="user-info-box">
     <block wx:if="{{is_bind}}">
       <view class="user-info">
         <view class="info-hd">
@@ -58,8 +57,18 @@
         </view>
       </view>
     </navigator>
+  </view-->
+  <view class="banner">
+    <view class="topContainer">
+        <view catchtap="showBcgImgArea">
+            <image class="userinfo-avatar" mode="aspectFill" src="{{userinfo.avatarUrl}}"></image>
+        </view>
+        <view>
+            <text class="userinfo-nickname">{{userinfo.nickName}}</text>
+        </view>
+    </view>
+    <button wx:if="{{!hasUserInfo && canIUseGetUserProfile&&false}}" open-type="getUserInfo" bindtap="getUserProfile" class="userLogin">  点击登录 </button>
   </view>
-
   <view class="more-list">
     <navigator url="/pages/more/issues" class="issue-link">
       <view class="more-btn">
@@ -80,10 +89,8 @@
       </view>
     </navigator>
   </view>
-
-  <navigator url="login" class="login-btn" size="max">
-    <text wx:if="{{is_bind}}">切换绑定</text>
-    <text wx:else>立即绑定</text>
-  </navigator>
-
+  <text class="bind_txt">  绑定成功以后，需要联系经纬新技术，进行设备绑定后，才能够进行设备管理！</text>
+  <text class="bind_txt">  经纬新技术与客户确认信息、绑定设备后，需要关闭或重启一次小程序！</text>
+  <button wx:if="{{!is_bind2 && canIUseGetUserProfile}}" open-type="getPhoneNumber" class="login-btn" bindgetphonenumber="getPhoneNumber" bindtap="getUserProfile">点击绑定</button>
+  <button wx:if="{{is_bind2 && canIUseGetUserProfile}}" open-type="getUserInfo" bindtap="login" class="login-btn"> 取消绑定 </button>
 </view>

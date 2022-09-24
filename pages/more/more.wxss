@@ -1,78 +1,38 @@
 /**more.wxss**/
-.container{
-  background-color: #f6f6f6;
-  padding: 0;
-  display: flex;
-  width:100%;
+.banner {
+  border-radius: 10rpx;
+  border: none;
+  box-sizing: content-box;
+  padding: 20rpx 0;
+  width: 90%;
+  height: 370rpx;
+  margin: 20rpx auto;
+  background:linear-gradient(109.6deg, rgb(204, 228, 247) 11.2%, rgb(237, 246, 250) 100.2%);
+  /* background-image:image("../../images/cloudbg.jpg"); */
+  text-align: center;
 }
-.user-info, .more-btn {
-  display: flex;
-  background-color: #fff;
-  min-height: 85rpx;
-  border-top: 1px solid #e5e5e5;
-  border-bottom: 1px solid #e5e5e5;
+
+.topContainer {
+  width: 100%;
+  height: 260rpx;
+  background-size: 100%;
+  border-radius: 9px;
 }
-/**user-info**/
-.user-info-box{
-  margin-bottom: 40rpx;
-  width:100%;
+.userinfo-nickname {
+  color:black;
 }
-.user-info {
-  flex-direction: column;
-  margin: 30rpx 0 -1px;
-  padding: 25rpx 30rpx 20rpx;
+.userLogin{
+  width: 50%;
+  box-sizing: none;
+  font-size: medium;
 }
-.info-hd {
-  display: flex;
-  align-items: center;
+.userinfo-avatar {
+  width: 150rpx;
+  height: 150rpx;
+  margin-bottom: 10rpx;
+  border-radius: 50%;
 }
-.bind-btn {
-  color: #aaa;
-}
-.user-avatar {
-  width: 120rpx;
-  height: 120rpx;
-  border-radius: 5px;
-}
-.user-title {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding-left: 25rpx;
-}
-.time-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 10pt;
-  line-height: 140%;
-  color: #aaa;
-}
-.user-name {
-  font-size: 16pt;
-  line-height: 160%;
-  letter-spacing: 1px;
-}
-.user-id {
-  font-size: 11pt;
-  color: #8b8b8b;
-}
-.info-bd {
-  display: flex;
-  justify-content: space-between;
-  padding: 25rpx 15rpx 0 5rpx;
-  font-size: 11pt;
-  line-height: 150%;
-  color: #8b8b8b;
-}
-.info-bd-left, .info-bd-right {
-  display: flex;
-  flex-direction: column;
-}
-.info-bd-left{
-  flex-shrink: 0;
-  padding-right: 30rpx;
-}
+
 /**more-list**/
 .more-list {
   flex: 1;
@@ -109,9 +69,9 @@
 }
 .login-btn {
   font-size: 13pt;
-  line-height: 85rpx;
+  line-height: 50rpx;
   height: 85rpx;
-  background: #e55c5c;
+  background: #0c5bd1;
   color: #fff;
   text-align: center;
   border-radius: 5px;
@@ -119,4 +79,7 @@
   width:100%;
   position:fixed;
   bottom:5rpx;
+}
+.bind_txt{
+  text-indent:2em
 }

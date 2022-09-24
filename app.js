@@ -9,16 +9,30 @@ App({
         //   env 参数决定接下来小程序发起的云开发调用（wx.cloud.xxx）会默认请求到哪个云环境的资源
         //   此处请填入环境 ID, 环境 ID 可打开云控制台查看
         //   如不填则使用默认环境（第一个创建的环境）
-         env: 'cloud1-5grrxptx9b5595f3',
+         env: 'jwxjs-0gr7moa55160b291',
         traceUser: true,
       })
     } 
+    
+
   },
   //后台切换至前台时
   onShow: function(){
 
   },
   globalData:{
+    userinfo: {
+      avatarUrl:'../../images/user.png',
+      nickName:'未授权'
+    },
+      openId:'',
+      MobilePhone:'',
+      testopenid:'',
+      is_bind:false,
+      is_userinfo:false,
+      haveOpenId:false,
+      username_login:'',
+      fenxiang:false,
       notice:'夯实质量基石 强化质量创新 打造质量优势',
       tiyan:false,
       DeviceNo:"232",

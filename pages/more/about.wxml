@@ -2,7 +2,6 @@
 <view class="container">
   <view class="header">
     <view class="black-cover"></view>
-    <image class="logo" src="/images/more/logo.png"></image>
     <image class="title" src="/images/more/title.png"></image>
   </view>
   <view class="content">
@@ -21,7 +20,7 @@
         <text class="desc-title">简介</text>
         <view class="desc-list">
           <text class="desc-list-item">官网：http://xjs.jwgf.com/</text>
-          <text class="desc-list-item">Github：https://gitee.com/yinzhongxi001/pic_sort.git</text>
+          <text class="desc-list-item">Github：https://github.com/yinzx2021/wxJingling</text>
         </view>
         <text class="desc-content">北京经纬纺机新技术有限公司，（以下简称北京新技术公司）是世界 500 强中国机械工业集团有限公司（SINOMACH 国机集团）的骨干企业——中国恒天集团有限公司（CHTC 恒天集团）的核心成员单位——经纬纺机机械股份有限公司的全资子公司。于2000年在北京经济技术开发区注册成立，注册资本15232万元，占地面积50亩。主要从事电气控制、工业检测、机器视觉、筒纱智能打包系统、纺纱智能工厂管控系统等高端产品研发。</text>
     </view>

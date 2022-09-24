@@ -1,10 +1,21 @@
 <!--about.wxml-->
-<view class="container">
-  <view class="header">
-    <view class="black-cover"></view>
-    <!--image class="logo" src="/images/more/lanshan.png"></image-->
-    <image class="title" src="/images/more/title.png"></image>
+<view class="book-image" >
+<swiper indicator-dots="true" indicator-color="#fff" autoplay="auto" interval="2000"  class="book-swiper" mode="hightFix">
+          <swiper-item><image src="{{p1}}" mode="hightFix"></image></swiper-item>
+          <swiper-item><image src="{{p2}}"></image></swiper-item>
+          <swiper-item><image src="{{p3}}"></image></swiper-item>
+          <swiper-item><image src="{{p4}}"></image></swiper-item>
+          <swiper-item><image src="{{p5}}"></image></swiper-item>
+          <swiper-item><image src="{{p6}}"></image></swiper-item>
+    </swiper>
   </view>
+<view class="container">
+  
+  <!--view class="header">
+    <view class="black-cover"></view>
+    <image class="logo" src="/images/more/lanshan.png"></image>
+    <image class="title" src="/images/more/title.png"></image>
+  </view-->
   <view class="content">
     <view class="version">
       <view class="version-title">

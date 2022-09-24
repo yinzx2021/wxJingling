@@ -1,0 +1,17 @@
+<template name="postItem">
+<view class="post-container">
+        <view class="post-author-date">
+              <image wx:if="{{true}}" class="post-author" src="../../images/more/about.png"></image>
+              <text class="post-date">"{{date}}"</text>
+        </view>
+        <text class="post-title">"{{title}}"</text>
+        <image class="post-image" src="{{imgurl}}"   mode="aspectFit"></image>
+        <text class="post-content">"{{brief}}"</text>
+        <view class="post-like">
+              <image class="post-like-image" src="../../images/icons-01.jpg"></image>
+              <text class="post-like-font">"{{likers}}"</text>
+              <image class="post-like-image" src="../../images/icons-02.jpg"></image>
+              <text class="post-like-font">"{{readers}}"</text>
+        </view>
+    </view> 
+  </template>

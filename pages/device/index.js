@@ -125,7 +125,7 @@ cusImageLoad: function(e){
 },
 onDisplay() {
   this.setData({ show: true });
-  this.setData({ hiddenChart: true });//真机调试时 注释掉
+  //this.setData({ hiddenChart: true });//真机调试时 注释掉
   console.log("calendar"+this.data.hiddenChart)
 },
 onClose() {
@@ -170,9 +170,9 @@ querydb(){
     if (this.data.deviceid === '0'){
       app.globalData.tiyan = true;
       console.log('tiyan is '+ app.globalData.tiyan)
-      chartData.main.data = app.globalData.record.当日日光喷出次数;
-      chartData.Uv.data = app.globalData.record.紫外喷出次数;
-      chartData.Vv.data = app.globalData.record.当日24小时流速;
+      app.globalData.record.当日日光喷出次数  = [1927,1914,1958,1802,1729,1809,1084,57,1361,1504,1676,1836,1672,1348,0,632,1712,1887,1290,533,1194,1524,1428,1241];
+      app.globalData.record.紫外喷出次数 = [357,368,297,274,342,330,237,18,275,296,245,399,387,288,0,123,287,330,206,132,280,629,610,614];
+      app.globalData.record.当日24小时流速 = [10.84,11.07,11.06,11.10,11.09,11.04,11.15,11.50,11.11,11.10,11.10,11.00,11.01,11.03,0.00,11.07,10.93,10.90,10.90,11.08,10.82,10.96,10.90,10.83];
       console.log('tiyan vv '+ app.globalData.record.当日24小时流速 )
       return;//体验，不需要再查询数据库
     }

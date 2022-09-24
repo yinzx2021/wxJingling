@@ -9,20 +9,20 @@
     "pages/more/login",
     "pages/more/about",
     "pages/more/issues",
-    "pages/more/append",
     "pages/news/news",
     "pages/pie/index",
     "pages/detail/detail",
     "pages/deviceInfo/index",
     "pages/checkParams/checkParams",
-    "pages/multiCharts/index",
     "pages/company/company",
     "pages/tuxiang/tuxiang",
     "pages/automan/automan",
     "pages/esystem/esystem",
     "pages/contract/contract",
     "pages/register/index",
-    "pages/history/history"
+    "pages/history/history",
+    "pages/intro/post-item/post-item-template",
+    "pages/intro/post-detail/post-detail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#40a3ee",
@@ -45,7 +45,7 @@
       },
       {
         "pagePath": "pages/intro/intro",
-        "text": "活动",
+        "text": "资讯",
         "iconPath": "image/huodong1.png",
         "selectedIconPath": "image/huodong.png"
       },

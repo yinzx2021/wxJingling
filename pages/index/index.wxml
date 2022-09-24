@@ -1,5 +1,7 @@
 <view class-noticebar>
   <van-notice-bar
+      id = "noticeCom"
+      class ="noticeClassCom"
       color="#fa8919"
       background="#eee7db"
       scrollable="true"

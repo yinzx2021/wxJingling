@@ -3,7 +3,7 @@
 let app = getApp();
 // 获取云数据库引用
 const db = wx.cloud.database();
-const admin = db.collection('adminlist');
+const admin = db.collection('user');
 let name1 = 'abc';
 let password = '123'; 
 let loginflag = 0;
@@ -18,17 +18,83 @@ Page({
   data: {
     username:'abc',
     phone:'123',
+    btnname:"请绑定后再操作"
   },
   //输入用户名
   inputName: function (event) {
-    name1 = event.detail.detail.value
+    name1 = event.detail,
+    console.log(name1)
   },
   //输入密码
   inputPassword(event) {
-    password = event.detail.detail.value
+    password = event.detail
+    console.log(password)
+  },
+  login(){
+    if (app.globalData.is_bind){
+      console.log(username_login)
+      wx.navigateTo({
+        url: `/pages/query/index?username_query=${username_login}`,
+      // url: '/pages/device/index',//将用户名或ID传输到查询界面
+      })  
+  }else{
+    wx.showModal({
+      title:'提示',
+      content: '请移步到，我的，进行绑定操作!',
+      showCancel:false,
+      success: function (res) {
+        if (res.confirm) {
+          wx.reLaunch({  url: '/pages/more/more' })
+        }}
+    })
+    
+  }
+  },
+  login3(){
+    console.log("into login3")
+    wx.cloud.callFunction({
+      name: 'decodephone',
+      data: {  
+        weRunData: 0,  
+        weRunOrNot:false
+      } ,
+      complete: res => {
+        // 将获取到的openid存入全局变量中
+        app.globalData.openId = res.result.openid
+        //console.log(app.globalData.openId)
+        app.globalData.haveOpenId = true
+        // 判断数据库中是否已经有数据
+        admin.where({
+          _openid: app.globalData.openId,
+        }).get({
+          success: res => {
+           // console.log(res)
+            if (res.data.length == 0) {
+              // 没找到数据
+              app.globalData.fenxiang = true
+              wx.reLaunch({
+                  url: '/pages/more/more',
+                })
+            } else {
+              // 找到了数据  
+              console.log("找到了数据  "+res.data[0].userinfo.mobilephone)           
+              username_login = res.data[0].userinfo.name
+              this.setData({
+                username:res.data[0].userinfo.username,
+                phone:res.data[0].userinfo.mobilephone
+              })
+             // this.login()
+           //   wx.reLaunch({
+            //    url: '/pages/query/index?username_query=' +res.data.userinfo.name,
+            //  })
+            }
+          }
+        })
+      }
+    })
   },
   //登陆
-  login(){
+  login2(){
     let that = this;
      //登陆获取用户信息
     admin.get({
@@ -36,6 +102,7 @@ Page({
         let user = res.data;
         console.log(res.data);
         loginflag = 0;
+        console.log(user.length);
         for (let i = 0; i < user.length; i++) {  //遍历数据库对象集合
           console.log(user[i].name);
           console.log(name1);
@@ -96,7 +163,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
@@ -112,7 +179,22 @@ Page({
    * 页面显示/切入前台时触发
    */
   onShow: function () {
-
+    console.log('login is' + app.globalData.openId)
+    if (app.globalData.is_bind){
+      username_login = app.globalData.username_login;
+      console.log('load name2 '+ username_login)
+      //this.login3()  
+      this.setData({ 
+       // username:app.globalData.userinfo.nickName,//nickname 
+        phone:app.globalData.mobilephone,
+        btnname:'查检设备' 
+      })
+    } else {
+      this.setData({  btnname:'请绑定后再操作',phone:'',
+    })}
+    this.setData({ 
+      username:app.globalData.userinfo.nickName,//nickname       
+    })
   },
 
   /**

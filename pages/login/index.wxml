@@ -6,22 +6,22 @@
       <van-field
         value="{{ username }}"
         label="用户名"
-        placeholder="请输入用户名"
+        placeholder="用户名"
         error
         bind:change='inputName'
       />
       <van-field
         value="{{ phone }}"
-        label="密码"
-        placeholder="请输入密码"
+        label="电话"
+        placeholder="phone"
         error-message=""
         border="{{ true }}"
         bind:change='inputPassword'
       />
     </van-cell-group>    
     <view class ="login">
-        <van-button   class="loginBtn" bindtap='login' type="primary">登录</van-button>   
-        <van-button   class="loginBtn"  bindtap='register' type="info">注册</van-button>
+        <van-button   class="loginBtn" bindtap='login' type="primary">{{btnname}}</van-button>   
+        <!--van-button   class="loginBtn"  bindtap='register' type="info">注册</van-button-->
 </view>
 </view>
 

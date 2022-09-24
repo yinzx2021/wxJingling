@@ -1,4 +1,9 @@
 /**about.wxss**/
+.book-image .book-swiper{
+  text-align: center;
+  align-items: center;
+  height:500rpx
+}
 .container{
   background: #f4f4f4;
   padding: 0;

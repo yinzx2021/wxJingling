@@ -46,11 +46,12 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.25.3",
-  "appid": "wx9bf4d39cbc826ee1",
+  "appid": "wx561183e24986c08a",
   "projectname": "iview-weapp",
   "condition": {},
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
-  }
+  },
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/"
 }

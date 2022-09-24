@@ -5,7 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+        p1:"cloud://jwxjs-0gr7moa55160b291.6a77-jwxjs-0gr7moa55160b291-1314067655/p1.jpg",
+        p2:"cloud://jwxjs-0gr7moa55160b291.6a77-jwxjs-0gr7moa55160b291-1314067655/p2.png",
+        p3:"cloud://jwxjs-0gr7moa55160b291.6a77-jwxjs-0gr7moa55160b291-1314067655/p3.jpg",
+        p4:"cloud://jwxjs-0gr7moa55160b291.6a77-jwxjs-0gr7moa55160b291-1314067655/p4.png",
+        p5:"cloud://jwxjs-0gr7moa55160b291.6a77-jwxjs-0gr7moa55160b291-1314067655/p5.jpg",
+        p6:"cloud://jwxjs-0gr7moa55160b291.6a77-jwxjs-0gr7moa55160b291-1314067655/p6.png"
   },
 
   /**
